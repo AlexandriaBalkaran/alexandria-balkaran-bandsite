@@ -1,0 +1,52 @@
+@use './partials/global' as *;
+@use './partials/mixins' as *;
+@use './partials/font' as *;
+@use '/partials/variables' as *;
+
+
+.header__logo {
+
+    @include flexCenter;
+}
+
+// Section One - Hero
+.hero {
+    height: 320px;
+    width: 100%;
+    background-size: cover;
+    background-image: url(/assets/images/hero-bio.jpg);
+    
+    @include flexCenter;
+
+    &__title {
+        color: $primaryWhite;
+    }
+
+    &__overlay {
+        background-color: $primaryBlack;
+        opacity: 0.5;
+        position: absolute;
+    }
+}
+
+// Section Two - About
+.about {
+    margin: 0 1rem;
+
+    &__image {
+        width: 100%;
+    
+        @include flexCenter
+    }
+}
+
+// Section Three - Gallery
+.gallery {
+    margin: 0 1rem;
+
+    &__photo {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 1rem;
+    }
+}
