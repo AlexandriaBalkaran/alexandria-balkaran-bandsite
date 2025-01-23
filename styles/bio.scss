@@ -1,52 +1,131 @@
-@use './partials/global' as *;
-@use './partials/mixins' as *;
-@use './partials/font' as *;
-@use '/partials/variables' as *;
+@use "./partials/global" as *;
+@use "./partials/font" as *;
+@use "./partials/mixins" as *;
+@use "./partials/variables" as *;
 
-
-.header__logo {
-
+.header {
+  &--color {
+    background-color: $primaryBlack;
+  }
+  &__logo {
     @include flexCenter;
+    padding-top: 1.5rem;
+    padding-bottom: 1rem;
+  }
+  &--align {
+    max-height: 1.25rem;
+    max-width: 7.5rem;
+  }
+  &__text {
+    color: $primaryWhite;
+    @include flexCenter;
+
+    &--align-bio {
+      width: 50%;
+    }
+  }
+}
+
+.header__text---align-bio {
+  width: 50%;
 }
 
 // Section One - Hero
 .hero {
-    height: 320px;
+  height: 12rem;
+  width: 100%;
+  background-size: cover;
+  background-image: url(/assets/images/hero-bio.jpg);
+  z-index: 1;
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  &__title {
+    color: $primaryWhite;
+    z-index: 3;
+    padding-left: 1rem;
+  }
+
+  &__overlay {
+    background-color: $primaryBlack;
+    opacity: 0.5;
+    position: absolute;
+    z-index: 2;
+    height: 12rem;
     width: 100%;
-    background-size: cover;
-    background-image: url(/assets/images/hero-bio.jpg);
-    
-    @include flexCenter;
-
-    &__title {
-        color: $primaryWhite;
-    }
-
-    &__overlay {
-        background-color: $primaryBlack;
-        opacity: 0.5;
-        position: absolute;
-    }
+  }
 }
 
 // Section Two - About
 .about {
-    margin: 0 1rem;
+  margin: 0 1rem;
 
-    &__image {
-        width: 100%;
-    
-        @include flexCenter
-    }
+  &__image {
+    width: 100%;
+    @include flexCenter;
+  }
+
+  &__quote {
+    @include fontSubheader-Mobile;
+  }
 }
 
 // Section Three - Gallery
 .gallery {
-    margin: 0 1rem;
+  padding: 0 1rem;
+  background-color: $secondaryWhite;
 
-    &__photo {
-        display: flex;
-        flex-wrap: wrap;
-        margin: 1rem;
+  &__photo {
+    // display: flex;
+    // flex-wrap: wrap;
+    // object-fit: cover;
+    display: block;
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+}
+//  Footer
+
+footer {
+  background-color: $primaryBlack;
+  color: $primaryWhite;
+  padding: 0 1rem;
+  
+    &__logo--align {
+      max-height: 1.25rem;
+      max-width: 7.5rem;
+      padding-top: 1.5rem;
+      padding-bottom: 1rem;
     }
+  }
+
+.social {
+  &__footer {
+    color: $primaryWhite;
+  }
+  &__icons {
+    display: flex;
+    justify-content: space-between;
+    width: 45%;
+  }
+}
+
+.contact {
+  &__text {
+    padding: 1rem 0;
+  }
+  &__email--underline {
+    text-decoration: none;
+    color: $primaryWhite;
+    @include fontReg-Mobile;
+  }
+  &__info--title {
+    @include fontSubheader-Mobile;
+    padding-top: 24px;
+  }
+}
+.copyright__text  {
+  @include fontSm-Mobile;
 }
