@@ -1,3 +1,4 @@
+// Colours
 $primaryBlack: #323232;
 
 $primarySilver: #afafaf;
@@ -9,3 +10,28 @@ $secondaryBlack: #000000;
 $secondarySilver: #e1e1e1;
 
 $secondaryWhite: #fafafa;
+
+// Breakpoints
+$mobileBreakpoint: 47.9375rem;
+
+$tabletBreakpoint: 48rem;
+
+$desktopBreakpoint: 80rem;
+
+@mixin mobile {
+    @media (max-width: $mobileBreakpoint){
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (min-width: $tabletBreakpoint) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: $desktopBreakpoint) {
+        @content;
+    }
+}

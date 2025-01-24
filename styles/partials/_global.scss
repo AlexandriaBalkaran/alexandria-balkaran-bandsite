@@ -10,18 +10,34 @@
   box-sizing: border-box;
 }
 h1 {
-  @include fontLg-Mobile;
+  @include fontHeader-Mobile;
+
+  @include tablet {
+    @include fontHeader-Desktop
+  }
 }
 h2 {
-  @include fontLg-Mobile;
+  @include fontHeader-Mobile;
   padding-top: 1.5rem;
   padding-bottom: 1rem;
+
+  @include tablet {
+    @include fontSectionHeader-Desktop
+  }
 }
 h3 {
-  @include fontMed-Mobile;
+  @include fontSubheader-Mobile;
+
+  @include tablet {
+    @include fontSubheader-Desktop
+  }
 }
 body p {
-  @include fontReg-Mobile;
+  @include fontBody-Mobile;
+
+  @include tablet {
+    @include fontBody-Desktop
+  }
 }
 main p {
   padding: 1rem 0;
