@@ -18,18 +18,21 @@ h1 {
 }
 h2 {
   @include fontHeader-Mobile;
-  padding-top: 1.5rem;
-  padding-bottom: 1rem;
+  @include paddingMobile;
 
   @include tablet {
-    @include fontSectionHeader-Desktop
+    @include fontSectionHeader-Desktop;
+    @include paddingDesktop;
+    padding-left: 2rem;
   }
 }
 h3 {
   @include fontSubheader-Mobile;
+  @include paddingMobile;
 
   @include tablet {
-    @include fontSubheader-Desktop
+    @include fontSubheader-Desktop;
+    @include paddingDesktop;
   }
 }
 body p {
@@ -40,5 +43,5 @@ body p {
   }
 }
 main p {
-  padding: 1rem 0;
+  padding-bottom: 1rem;
 }

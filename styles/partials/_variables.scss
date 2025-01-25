@@ -18,20 +18,20 @@ $tabletBreakpoint: 48rem;
 
 $desktopBreakpoint: 80rem;
 
-@mixin mobile {
-    @media (max-width: $mobileBreakpoint){
-        @content;
-    }
-}
+// @mixin mobile {
+//     @media (max-width: $mobileBreakpoint){
+//         @content;
+//     }
+// }
 
-@mixin tablet {
-    @media (min-width: $tabletBreakpoint) {
-        @content;
-    }
-}
+// @mixin tablet {
+//     @media (min-width: $tabletBreakpoint) {
+//         @content;
+//     }
+// }
 
-@mixin desktop {
-    @media (min-width: $desktopBreakpoint) {
-        @content;
-    }
-}
+// @mixin desktop {
+//     @media (min-width: $desktopBreakpoint) {
+//         @content;
+//     }
+// }

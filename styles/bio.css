@@ -1,16 +1,16 @@
 @font-face {
   font-family: "Nunito Sans";
-  src: url("/assets/font/NunitoSans-Regular.woff") format("woff"), url("/assets/font/Alternative files/NunitoSans-Medium") format("woff2");
+  src: url("/assets/font/NunitoSans-Regular.woff") format("woff"), url("/assets/font/NunitoSans-Regular.woff2") format("woff2");
   font-weight: 400;
 }
 @font-face {
   font-family: "Nunito Sans";
-  src: url("/assets/font/NunitoSans-Medium.woff") format("woff"), url("/assets/font/Alternative files/NunitoSans-Medium") format("woff2");
+  src: url("/assets/font/NunitoSans-Medium.woff") format("woff"), url("/assets/font/NunitoSans-Medium.woff2") format("woff2");
   font-weight: 500;
 }
 @font-face {
   font-family: "Nunito Sans";
-  src: url("/assets/font/NunitoSans-Bold.woff") format("woff"), url("/assets/font/Alternative files/NunitoSans-Bold") format("woff2");
+  src: url("/assets/font/NunitoSans-Bold.woff") format("woff"), url("/assets/font/NunitoSans-Bold.woff2") format("woff2");
   font-weight: 700;
 }
 *,
@@ -50,6 +50,9 @@ h2 {
     font-size: 2.25rem;
     line-height: 2.75rem;
     font-weight: 700;
+    padding-top: 3rem;
+    padding-bottom: 2.25rem;
+    padding-left: 2rem;
   }
 }
 
@@ -58,6 +61,8 @@ h3 {
   font-size: 0.875rem;
   line-height: 1.375rem;
   font-weight: 600;
+  padding-top: 1.5rem;
+  padding-bottom: 1rem;
 }
 @media (min-width: 48rem) {
   h3 {
@@ -65,6 +70,8 @@ h3 {
     font-size: 1.5rem;
     line-height: 2rem;
     font-weight: 500;
+    padding-top: 3rem;
+    padding-bottom: 2.25rem;
   }
 }
 
@@ -84,7 +91,7 @@ body p {
 }
 
 main p {
-  padding: 1rem 0;
+  padding-bottom: 1rem;
 }
 
 .header--color {
@@ -94,7 +101,7 @@ main p {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 1rem;
+  padding: 1.5rem;
 }
 .header--align {
   max-height: 1.25rem;
@@ -124,10 +131,19 @@ main p {
 }
 .nav-bar li {
   padding: 0.9375rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-basis: 50%;
+  text-align: center;
+}
+@media (min-width: 48rem) {
+  .nav-bar li {
+    flex-basis: 0%;
+  }
 }
 .nav-bar li:hover {
   color: #ffffff;
-  font-weight: bold;
   border-bottom: 2px solid #ffffff;
   padding: 0.9375rem 0;
 }
@@ -135,12 +151,17 @@ main p {
   font-weight: bold;
   border-bottom: 2px solid #ffffff;
 }
+.nav-bar li.active {
+  border-bottom: 2px solid #ffffff;
+  font-weight: bold;
+}
 .nav-bar__text {
   color: #e1e1e1;
   text-decoration: none;
   transition: color 0.2s, -webkit-text-decoration 0.2s;
   transition: color 0.2s, text-decoration 0.2s;
   transition: color 0.2s, text-decoration 0.2s, -webkit-text-decoration 0.2s;
+  padding: 1.5rem;
   font-family: "Nunito Sans";
   font-size: 0.8125rem;
   line-height: 1.125rem;
@@ -148,7 +169,9 @@ main p {
 }
 
 .hero {
-  height: 12rem;
+  height: 45vw;
+  min-height: 300px;
+  max-height: 700px;
   width: 100%;
   background-size: cover;
   background-image: url(/assets/images/hero-bio.jpg);
@@ -168,7 +191,9 @@ main p {
   opacity: 0.5;
   position: absolute;
   z-index: 2;
-  height: 12rem;
+  height: 45vw;
+  min-height: 300px;
+  max-height: 700px;
   width: 100%;
 }
 
@@ -176,16 +201,20 @@ main p {
   margin: 0 1rem;
 }
 .about__image {
-  width: 100%;
+  max-width: 100%;
+  height: auto;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.about__quote {
+.about__quote, .about__quote--spacing {
   font-family: "Nunito Sans";
   font-size: 0.875rem;
   line-height: 1.375rem;
   font-weight: 600;
+}
+.about__quote--spacing, .about__quote--spacing--spacing {
+  padding-top: 0;
 }
 @media (min-width: 48rem) {
   .about {
@@ -193,6 +222,14 @@ main p {
     font-size: 1.5rem;
     line-height: 2rem;
     font-weight: 500;
+  }
+  .about__image {
+    padding: 0 2rem;
+  }
+  .about__text {
+    display: flex;
+    padding: 0 2rem;
+    gap: 40px;
   }
 }
 
@@ -205,7 +242,13 @@ main p {
   flex-wrap: wrap;
   justify-content: flex-start;
   width: 100%;
-  margin: 1rem 0;
+  padding: 1rem;
+  filter: grayscale(100%);
+  transition: filter 0.2s ease;
+}
+.gallery__photo:hover {
+  filter: grayscale(0%);
+  transition: filter 0.2s ease;
 }
 @media (min-width: 48rem) {
   .gallery__photo {
@@ -213,7 +256,8 @@ main p {
   }
   .gallery__row--one, .gallery__row--two, .gallery__row--three {
     display: flex;
-    flex-direction: row;
+    justify-content: center;
+    align-items: center;
   }
 }
 
@@ -230,12 +274,19 @@ footer__logo--align {
 }
 
 .social__title {
-  width: 60%;
+  width: 30%;
 }
 .social__icons {
   display: flex;
   justify-content: space-between;
-  width: 45%;
+  width: 25%;
+}
+@media (min-width: 48rem) {
+  .social__title-icons {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
 }
 
 .contact__text {

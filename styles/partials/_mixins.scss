@@ -1,5 +1,26 @@
+@use "./variables" as *;
+
 @mixin flexCenter {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+@mixin tablet {
+    @media (min-width: $tabletBreakpoint) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: $desktopBreakpoint) {
+        @content;
+    }
+}
+@mixin paddingMobile {
+    padding-top: 1.5rem;
+    padding-bottom: 1rem;
+}
+@mixin paddingDesktop {
+    padding-top: 3rem;
+    padding-bottom: 2.25rem;
 }
