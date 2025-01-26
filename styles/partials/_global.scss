@@ -11,10 +11,11 @@
 }
 h1 {
   @include fontHeader-Mobile;
+  padding-left: 1rem;
 
   @include tablet {
     @include fontHeader-Desktop;
-    padding-left: 1rem;
+    padding-left: 2.25;
   }
 
   @include desktop {
@@ -29,6 +30,10 @@ h2 {
   @include tablet {
     @include fontSectionHeader-Desktop;
     @include paddingDesktop;
+    padding-left: 2.25rem;
+  }
+  @include desktop {
+    padding-left: 5rem;
   }
 }
 h3 {
@@ -44,7 +49,7 @@ body p {
   @include fontBody-Mobile;
 
   @include tablet {
-    @include fontBody-Desktop
+    @include fontBody-Desktop;
   }
 }
 main p {

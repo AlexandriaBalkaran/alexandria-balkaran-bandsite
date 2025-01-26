@@ -17,21 +17,3 @@ $mobileBreakpoint: 47.9375rem;
 $tabletBreakpoint: 48rem;
 
 $desktopBreakpoint: 80rem;
-
-// @mixin mobile {
-//     @media (max-width: $mobileBreakpoint){
-//         @content;
-//     }
-// }
-
-// @mixin tablet {
-//     @media (min-width: $tabletBreakpoint) {
-//         @content;
-//     }
-// }
-
-// @mixin desktop {
-//     @media (min-width: $desktopBreakpoint) {
-//         @content;
-//     }
-// }
