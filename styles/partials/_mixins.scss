@@ -5,6 +5,11 @@
     justify-content: center;
     align-items: center;
 }
+// @mixin mobile {
+//     @media (max-width: $mobileBreakpoint){
+//         @content;
+//     }
+// }
 @mixin tablet {
     @media (min-width: $tabletBreakpoint) {
         @content;
