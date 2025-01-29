@@ -4,30 +4,37 @@
 @use "./partials/variables" as *;
 
 .shows__hero {
-  height: 45vw;
-  min-height: 300px;
-  max-height: 700px;
-  width: 100%;
-  background-size: cover;
+  // height: 45vw;
+  // min-height: 300px;
+  // max-height: 700px;
+  // width: 100%;
+  // background-size: cover;
+  @include heroBackground; 
   background-image: url(/assets/images/hero-shows.jpg);
-  z-index: 1;
-  position: relative;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
+  
+  // z-index: 1;
+  // position: relative;
+  // display: flex;
+  // justify-content: flex-start;
+  // align-items: center;
 
   & p {
     color: $primaryWhite;
     z-index: 3;
   }
   &--overlay {
-    background-color: $primaryBlack;
-    opacity: 0.5;
-    position: absolute;
-    z-index: 2;
-    height: 45vw;
-    min-height: 300px;
-    max-height: 700px;
-    width: 100%;
+    @include heroOverlay;
+    // background-color: $primaryBlack;
+    // opacity: 0.5;
+    // position: absolute;
+    // z-index: 2;
+    // height: 45vw;
+    // min-height: 300px;
+    // max-height: 700px;
+    // width: 100%;
   }
+}
+#show-lost .show-list {
+  color: black;
+  height: 30rem;
 }

@@ -339,12 +339,12 @@ footer .footer__logo--align {
   max-height: 700px;
   width: 100%;
   background-size: cover;
-  background-image: url(/assets/images/hero-shows.jpg);
   z-index: 1;
   position: relative;
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  background-image: url(/assets/images/hero-shows.jpg);
 }
 .shows__hero p {
   color: #ffffff;
@@ -359,4 +359,9 @@ footer .footer__logo--align {
   min-height: 300px;
   max-height: 700px;
   width: 100%;
+}
+
+#show-lost .show-list {
+  color: black;
+  height: 30rem;
 }/*# sourceMappingURL=shows.css.map */

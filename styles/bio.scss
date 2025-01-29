@@ -6,17 +6,19 @@
 
 // Section One - Hero
 .hero {
-  height: 45vw;
-  min-height: 300px;
-  max-height: 700px;
-  width: 100%;
-  background-size: cover;
+  // height: 45vw;
+  // min-height: 300px;
+  // max-height: 700px;
+  // width: 100%;
+  // background-size: cover;
+  @include heroBackground;
   background-image: url(/assets/images/hero-bio.jpg);
-  z-index: 1;
-  position: relative;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
+  // @include heroBackground;
+  // z-index: 1;
+  // position: relative;
+  // display: flex;
+  // justify-content: flex-start;
+  // align-items: center;
 
   &__title {
     @include tablet {
@@ -28,14 +30,15 @@
   }
 
   &__overlay {
-    background-color: $primaryBlack;
-    opacity: 0.5;
-    position: absolute;
-    z-index: 2;
-    height: 45vw;
-    min-height: 300px;
-    max-height: 700px;
-    width: 100%;
+    @include heroOverlay;
+    // background-color: $primaryBlack;
+    // opacity: 0.5;
+    // position: absolute;
+    // z-index: 2;
+    // height: 45vw;
+    // min-height: 300px;
+    // max-height: 700px;
+    // width: 100%;
   }
 }
 

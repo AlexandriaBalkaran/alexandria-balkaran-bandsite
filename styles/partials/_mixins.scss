@@ -91,3 +91,28 @@
   line-height: 1.25rem;
   font-weight: 700;
 }
+// Hero Section
+@mixin heroBackground {
+  height: 45vw;
+  min-height: 300px;
+  max-height: 700px;
+  width: 100%;
+  background-size: cover;
+  z-index: 1;
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+@mixin heroOverlay {
+  background-color: $primaryBlack;
+  opacity: 0.5;
+  position: absolute;
+  z-index: 2;
+  height: 45vw;
+  min-height: 300px;
+  max-height: 700px;
+  width: 100%;
+}
+
+
