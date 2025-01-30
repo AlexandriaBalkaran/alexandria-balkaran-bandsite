@@ -31,18 +31,6 @@ const shows = [
     },
   ];
 
-//   Notes
-// const list = document.getElementById('show-list')
-
-// for (const show of shows) {
-//     const show = document.createElement("div");
-//     show.textContent = showObj.venue + "-" + showObj.date;
-//     // OR
-//     show.textContent = showObj.date;
-    
-//     list.append(show);
-// }
-
 // //   Notes
 // const list = document.getElementById('show-list')
 
@@ -68,15 +56,59 @@ const shows = [
 
 
 // Notes
-const list = document.getElementById('show-list')
-console.log(list)
+const list = document.querySelector('.show-list');
+console.log(list);
 
 for (const showObj of shows) {
   const show = document.createElement ("div");
   show.classList.add("show");
-  show.textContent = showObj.venue + "-" + showObj.date;
-
+  // show.textContent = showObj.venue + " - " + showObj.date + " - " + showObj.location;
   list.append(show);
+
+  // const showList = document.createElement ("div");
+  // showList.classList.add("show-list");
+  // show.append(showList);
+
+  const dateSubheader  = document.createElement("p");
+  dateSubheader.classList.add('show-list__dateSubheader');
+  dateSubheader.textContent = 'DATE';
+  show.append(dateSubheader);
+
+  const date  = document.createElement("p");
+  date.classList.add('show-list__date');
+  date.textContent = showObj.date;
+  show.append(date);
+
+  const venueSubheader  = document.createElement("p");
+  venueSubheader.classList.add('show-list__venueSubheader');
+  venueSubheader.textContent = 'VENUE';
+  show.append(venueSubheader);
+
+  const venue  = document.createElement("p")
+  venue.classList.add('show-list__venue')
+  venue.textContent = showObj.venue;
+  show.append(venue);
+
+  const locationSubheader  = document.createElement("p");
+  locationSubheader.classList.add('show-list__locationSubheader');
+  locationSubheader.textContent = 'LOCATION';
+  show.append(locationSubheader);
+
+  const location = document.createElement("p");
+  location.classList.add('show-list__location');
+  location.textContent = showObj.location;
+  show.append(location);
+
+  const tickets = document.createElement("button");
+  tickets.classList.add('show-list__tickets');
+  tickets.textContent = 'BUY TICKETS';
+  show.append(tickets);
+
+  // list.append(show);
 }
 
-// Deffo need to use querySelector somewhere
+// // Deffo need to use querySelector or querySectorAll somewhere
+// show.querySelector('.show-list__date').textContent
+// show.querySelector('.show-list__venue').textContent
+// show.querySelector('show-list__location').textContent
+

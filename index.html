@@ -2,9 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="styles/bio.css" />
+    <link rel="stylesheet" type="text/css" href="styles/bio.css"/>
+    <script src="/scripts/index-page.js" defer></script>
   </head>
   <body>
     <header class="header--color">
@@ -127,6 +128,20 @@
           </div>
         </div>
       </section>
+      <section>
+        <h2>Join the Conversation</h2>
+        <form id="comments-form">
+            <label>
+              NAME
+              <input type="text" name="name" id="name-input" placeholder="Name">
+            </label>
+            <label>
+              COMMENT
+              <textarea name="comment" id="comment-input" placeholder="Add a new comment"></textarea>
+            </label>
+            <button type="submit">COMMENT</button>
+        </form>
+      </section>
     </main>
     <footer>
       <section class="footer--spacing">
@@ -220,6 +235,5 @@
         </p>
       </div>
     </footer>
-    <script src="/scripts/index-page.js" defer></script>
   </body>
 </html>
