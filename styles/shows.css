@@ -362,15 +362,26 @@ footer .footer__logo--align {
   display: flex;
   flex-direction: column;
 }
+@media (min-width: 80rem) {
+  .shows__hero-content {
+    flex-direction: row;
+  }
+}
+.shows__hero-content--flex {
+  min-width: 70%;
+}
 
 .shows__title--position {
   display: flex;
-  width: 60%;
+}
+.shows__title--position h1 span {
+  display: block;
 }
 
 .shows__text--position {
   display: flex;
   padding-left: 1rem;
+  width: 60%;
   font-family: "Nunito Sans";
   font-size: 0.8125rem;
   line-height: 1.125rem;
@@ -391,23 +402,8 @@ footer .footer__logo--align {
   }
 }
 
-.iframe {
+.iframe--flex {
   display: flex;
   z-index: 4;
   padding: 1rem;
-}
-@media (min-width: 48rem) {
-  .iframe {
-    padding-left: 2.25rem;
-  }
-}
-@media (min-width: 80rem) {
-  .iframe {
-    padding-left: 5rem;
-  }
-}
-
-#show-lost .show-list {
-  color: black;
-  height: 30rem;
 }/*# sourceMappingURL=shows.css.map */

@@ -18,15 +18,24 @@
   &-content {
     display: flex;
     flex-direction: column;
+    @include desktop {
+      flex-direction: row;
+    }
+    &--flex {
+    min-width: 70%;
+    }
   }
 }
 .shows__title--position {
+  h1 span {
+    display: block;
+  }
   display: flex;
-  width: 60%;
 }
 .shows__text--position {
   display: flex;
   padding-left: 1rem;
+  width: 60%;
   @include fontBody-Mobile;
 
   @include tablet {
@@ -37,19 +46,17 @@
     padding-left: 5rem;
   }
 }
-.iframe {
+.iframe--flex {
   display: flex;
   z-index: 4;
   padding: 1rem;
 
   @include tablet {
-    padding-left: 2.25rem;
   }
   @include desktop {
-    padding-left: 5rem;
   }
 }
-#show-lost .show-list {
-  color: black;
-  height: 30rem;
-}
+// #show-lost .show-list {
+//   color: black;
+//   height: 30rem;
+// }
