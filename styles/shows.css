@@ -175,10 +175,7 @@ main p {
   padding-bottom: 1rem;
   position: relative;
 }
-.nav-bar li:hover {
-  border-bottom: 2px solid #ffffff;
-}
-.nav-bar li:active {
+.nav-bar li:hover, .nav-bar li:active {
   border-bottom: 2px solid #ffffff;
 }
 @media (min-width: 48rem) {
@@ -345,6 +342,7 @@ footer .footer__logo--align {
   justify-content: flex-start;
   align-items: center;
   background-image: url(/assets/images/hero-shows.jpg);
+  padding: 2% 0;
 }
 .shows__hero p {
   color: #ffffff;
@@ -359,6 +357,54 @@ footer .footer__logo--align {
   min-height: 300px;
   max-height: 700px;
   width: 100%;
+}
+.shows__hero-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.shows__title--position {
+  display: flex;
+  width: 60%;
+}
+
+.shows__text--position {
+  display: flex;
+  padding-left: 1rem;
+  font-family: "Nunito Sans";
+  font-size: 0.8125rem;
+  line-height: 1.125rem;
+  font-weight: 400;
+}
+@media (min-width: 48rem) {
+  .shows__text--position {
+    padding-left: 2.25rem;
+    font-family: "Nunito Sans";
+    font-size: 0.875rem;
+    line-height: 1.375rem;
+    font-weight: 400;
+  }
+}
+@media (min-width: 80rem) {
+  .shows__text--position {
+    padding-left: 5rem;
+  }
+}
+
+.iframe {
+  display: flex;
+  z-index: 4;
+  padding: 1rem;
+}
+@media (min-width: 48rem) {
+  .iframe {
+    padding-left: 2.25rem;
+  }
+}
+@media (min-width: 80rem) {
+  .iframe {
+    padding-left: 5rem;
+  }
 }
 
 #show-lost .show-list {

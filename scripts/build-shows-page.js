@@ -31,43 +31,15 @@ const shows = [
     },
   ];
 
-// //   Notes
-// const list = document.getElementById('show-list')
-
-// for (let i = 0; i < shows.length; i++) {
-//     const showObj = shows[i]
-// const show = document.createElement ("div");
-// show.classList.add("show");
-// show.textContent = showObj.venue + "-" + showObj.date;
-// list.appendChild(show);
-// }
-
-// Notes
-// const list = document.getElementById('show-list')
-
-// for (let i = 0; i < shows.length; i++) {
-//   const showObj = shows[i]
-
-//   const show = document.createElement ("div");
-//   show.classList.add("show");
-
-//   show.textContent = showObj.venue + showObj.date;
-// }
 
 
 // Notes
 const list = document.querySelector('.show-list');
-console.log(list);
+const showContent = document.querySelector('.show-list__content')
 
 for (const showObj of shows) {
   const show = document.createElement ("div");
   show.classList.add("show");
-  // show.textContent = showObj.venue + " - " + showObj.date + " - " + showObj.location;
-  list.append(show);
-
-  // const showList = document.createElement ("div");
-  // showList.classList.add("show-list");
-  // show.append(showList);
 
   const dateSubheader  = document.createElement("p");
   dateSubheader.classList.add('show-list__dateSubheader');
@@ -104,11 +76,28 @@ for (const showObj of shows) {
   tickets.textContent = 'BUY TICKETS';
   show.append(tickets);
 
-  // list.append(show);
+  list.append(show);
 }
 
-// // Deffo need to use querySelector or querySectorAll somewhere
-// show.querySelector('.show-list__date').textContent
-// show.querySelector('.show-list__venue').textContent
-// show.querySelector('show-list__location').textContent
+// //   Notes
+// const list = document.getElementById('show-list')
 
+// for (let i = 0; i < shows.length; i++) {
+//     const showObj = shows[i]
+// const show = document.createElement ("div");
+// show.classList.add("show");
+// show.textContent = showObj.venue + "-" + showObj.date;
+// list.appendChild(show);
+// }
+
+// Notes
+// const list = document.getElementById('show-list')
+
+// for (let i = 0; i < shows.length; i++) {
+//   const showObj = shows[i]
+
+//   const show = document.createElement ("div");
+//   show.classList.add("show");
+
+//   show.textContent = showObj.venue + showObj.date;
+// }

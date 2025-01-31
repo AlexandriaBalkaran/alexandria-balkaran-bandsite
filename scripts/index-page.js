@@ -1,10 +1,3 @@
-const commentSection = document.getElementById('comments-form');
-const newForm = document.createElement('form');
-newForm.id = 'new-form';
-const name = document.getElementById('name-input');
-const input = document.createElement('input');
-const button = document.createElement('button');
-
 const comments = [
     {
       name: "Isaac Tadesse",
@@ -26,24 +19,70 @@ const comments = [
     },
   ];
 
-  function display(comment) {
-  const div = document.createElement("div");
-  div.textContent = ${comment.name}
-  commentSection.append(div);
+  // const listEl = document.getElementById('list');
+
+const commentForm = document.getElementById('comment-form');
+const commentSect = document.getElementById('comment__section');
+const nameInput = document.getElementById('name-input');
+const commentInput = document.getElementById('comment-input');
+
+comments.forEach(displayComment);
+
+  // const commentSection = document.getElementById('comments-form');
+  // const newForm = document.createElement('form');
+  // newForm.id = 'new-form';
+  // const input = document.createElement('input');
+  // const button = document.createElement('button');
+
+
+function displayComment(comment) {
+  const nameEl = createDiv('name-input__info');
+  const commentEl = createDiv('comment-input__info');
+  nameEl.append(commentEl); 
+}
+function displayComment(comment) {
+  const commentEl = document.createElement('div');
+  commentEl.classList.add('comment');
+  commentEl.textContent = comment.comment;
+  // comment.append(commentEl);
 }
 
 
-  // input.name = 'alex';
-  // button.textContent = 'COMMENT';
-  // newForm.append(input);
-  // newForm.append(button);
-  
-  commentSection.append(newForm);
-  
-  newForm.addEventListener('submit' , (e) => {
-    e.preventDefault();
-    console.log(e.target['alex'].value);
-  });
+function display(comment) {
+  const div = document.createElement("div");
+  div.textContent = `${comment.name}`
+  commentSection.append(div);
+}
+
+function createDiv(className, textContent) {
+  const div = document.createElement('div');
+  div.className = className;
+  div.textContent = textContent;
+  return div;
+}
+
+commentSect.addEventListener('submit' , (e) => {
+  e.preventDefault();
+  const name = nameInput.textContent;
+  const comment = commentInput.textContent; 
+  const newComment = {
+    name: '' ,
+    comment: '' ,
+    date: new Date () ,
+  }
+
+  comments.push(newComment);
+  displayComment(newComment);
+// Not sure if I should push new comment or just comment
+  render();
+});
+
+function render() {
+  commentSect.replaceChildren();
+  comments.forEach(displayComment);
+}
+
+
   
   
 
@@ -55,18 +94,11 @@ console.log(date.toLocaleDateString()) // output: '8/14/2024'
 
 
 // Notes
-// const commentsEl = document.getElementById("comments");
 
 // for (const comment of comments){
 //   display (comment);
 // }
 // ^^ no idea what thats about
-
-// function display(comment) {
-//   const div = document.createElement("div");
-//   div.textContent =
-//   commentsEl.append(div);
-// }
 
 // commentsEl.addEventListener("comment" , (e) => {
 //   e.preventDefault();

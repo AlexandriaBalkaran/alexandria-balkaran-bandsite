@@ -130,17 +130,22 @@
       </section>
       <section>
         <h2>Join the Conversation</h2>
-        <form id="comments-form">
-            <label>
-              NAME
-              <input type="text" name="name" id="name-input" placeholder="Name">
-            </label>
-            <label>
-              COMMENT
-              <textarea name="comment" id="comment-input" placeholder="Add a new comment"></textarea>
-            </label>
-            <button type="submit">COMMENT</button>
-        </form>
+        <div id="comment__section">
+          <div id="form">
+            <form id="comments-form">
+              <label>
+                NAME
+                <input type="text" name="name" id="name-input" placeholder="Name">
+              </label>
+              <label>
+                COMMENT
+                <textarea name="comment" id="comment-input" placeholder="Add a new comment"></textarea>
+              </label>
+              <button type="submit">COMMENT</button>
+            </form>
+          </div>
+          <div id="comments-current"></div>
+        </div>
       </section>
     </main>
     <footer>

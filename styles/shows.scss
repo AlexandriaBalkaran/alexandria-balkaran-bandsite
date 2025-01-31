@@ -4,19 +4,9 @@
 @use "./partials/variables" as *;
 
 .shows__hero {
-  // height: 45vw;
-  // min-height: 300px;
-  // max-height: 700px;
-  // width: 100%;
-  // background-size: cover;
   @include heroBackground; 
   background-image: url(/assets/images/hero-shows.jpg);
-  
-  // z-index: 1;
-  // position: relative;
-  // display: flex;
-  // justify-content: flex-start;
-  // align-items: center;
+  padding: 2% 0;
 
   & p {
     color: $primaryWhite;
@@ -24,14 +14,39 @@
   }
   &--overlay {
     @include heroOverlay;
-    // background-color: $primaryBlack;
-    // opacity: 0.5;
-    // position: absolute;
-    // z-index: 2;
-    // height: 45vw;
-    // min-height: 300px;
-    // max-height: 700px;
-    // width: 100%;
+  }
+  &-content {
+    display: flex;
+    flex-direction: column;
+  }
+}
+.shows__title--position {
+  display: flex;
+  width: 60%;
+}
+.shows__text--position {
+  display: flex;
+  padding-left: 1rem;
+  @include fontBody-Mobile;
+
+  @include tablet {
+    padding-left: 2.25rem;
+    @include fontBody-Desktop;
+  }
+  @include desktop {
+    padding-left: 5rem;
+  }
+}
+.iframe {
+  display: flex;
+  z-index: 4;
+  padding: 1rem;
+
+  @include tablet {
+    padding-left: 2.25rem;
+  }
+  @include desktop {
+    padding-left: 5rem;
   }
 }
 #show-lost .show-list {

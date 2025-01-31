@@ -175,10 +175,7 @@ main p {
   padding-bottom: 1rem;
   position: relative;
 }
-.nav-bar li:hover {
-  border-bottom: 2px solid #ffffff;
-}
-.nav-bar li:active {
+.nav-bar li:hover, .nav-bar li:active {
   border-bottom: 2px solid #ffffff;
 }
 @media (min-width: 48rem) {

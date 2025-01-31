@@ -106,13 +106,10 @@ main p {
     padding-bottom: 1rem;
     position: relative;
 
-    &:hover {
+    &:hover , &:active {
       border-bottom: 2px solid $primaryWhite;
     }
-    &:active {
-      border-bottom: 2px solid $primaryWhite;
-    }
-
+    
     @include tablet {
       flex-basis: 0%;
     }
