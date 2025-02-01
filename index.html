@@ -130,18 +130,23 @@
       </section>
       <section>
         <h2>Join the Conversation</h2>
-          <div id="form">
-            <form id="comments-form">
-              <label>
-                NAME
-                <input type="text" name="name" id="name-input" placeholder="Name">
-              </label>
-              <label>
-                COMMENT
-                <textarea name="comment-text" id="comment-input" placeholder="Add a new comment"></textarea>
-              </label>
-              <button type="submit">COMMENT</button>
-              <div class="comments-section"></div>
+          <div class="form" id="form">
+            <form class="comments-form">
+              <div class="form__image">
+                <img class="form__image--size" src="/assets/images/Mohan-muruge.jpg" alt="avatar icon of a side profile of a man">
+              </div>
+              <div class="form__container--flex">
+                <label class="form__name--flex">
+                  NAME
+                  <input type="text" name="nameText" id="name-input" placeholder="Enter your name">
+                </label>
+                <label class="form__comment--flex">
+                  COMMENT
+                  <textarea name="commentText" id="comment-input" placeholder="Add a new comment"></textarea>
+                </label>
+                <button type="submit">COMMENT</button>
+              </div>
+                <div class="comments-section"></div>
             </form>
           </div>
       </section>

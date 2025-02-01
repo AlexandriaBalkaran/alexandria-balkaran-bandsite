@@ -105,5 +105,37 @@
     }
   }
 }
-
-
+.name-date__container {
+  display: flex;
+  justify-content: space-between;
+}
+.image__container {
+  width: 3rem;
+  height: 3rem;
+  background-color: $secondarySilver;
+  border-radius: 50%;
+}
+.form__container--flex {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+.form__name--flex {
+  display: flex;
+  flex-direction: column;
+  @include fontLabel-Mobile
+}
+.form__comment--flex {
+  display: flex;
+  flex-direction: column;
+  @include fontLabel-Mobile
+}
+.form__image {
+  width: 20%;
+  
+  &--size {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  }
+}

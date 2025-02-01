@@ -18,6 +18,8 @@ const comments = [
       date: new Date("11/02/2023"),
     },
   ];
+  const date = new Date("08/14/2024")
+  console.log(date.toLocaleDateString()) // output: '8/14/2024'
 
   // const listEl = document.getElementById('list');
 
@@ -28,9 +30,9 @@ const comments = [
   // const button = document.createElement('button');
 
 // const commentForm = document.getElementById('comment-form');
-// const commentSect = document.getElementById('comment__section');
-// // const nameInput = document.getElementById('name-input');
-// // const commentInput = document.getElementById('comment-input');
+const commentSect = document.getElementById('comment__section');
+const nameInput = document.getElementById('name-input');
+const commentInput = document.getElementById('comment-input');
 // const commentsCurrentEl = document.getElementById("comments-current");
 
 comments.forEach(displayComment);
@@ -40,41 +42,55 @@ function displayComment(commentOutput) {
   const commentEl = document.createElement('div');
   commentEl.classList.add('comment__container');
 
+  const nameDateContainer = document.createElement('div');
+  nameDateContainer.classList.add('name-date__container');
+
   const nameEl = document.createElement('p');
   nameEl.classList.add('name__container');
   nameEl.innerText = commentOutput.name;
-  commentEl.appendChild(nameEl);
-
-  const imageEl = document.createElement('img');
-  imageEl.classList.add('image__container');
-  commentEl.appendChild(imageEl);
+  nameDateContainer.appendChild(nameEl);
 
   const dateEl = document.createElement('p');
   dateEl.classList.add('date__container');
-  dateEl.innerText = commentOutput.date;
-  commentEl.appendChild(dateEl);
+
+  const dateFormat = new Date(commentOutput.date).toLocaleDateString('en-US', {
+    year: 'numeric' ,
+    month: '2-digit' ,
+    day: '2-digit' ,
+  });
+
+  dateEl.innerText = dateFormat;
+  nameDateContainer.appendChild(dateEl);
+
+  commentEl.appendChild(nameDateContainer);
+
+  // const blankImageEl = document.createElement('div');
+  // blankImageEl.classList.add('Image--blank');
+  // commentEl.appendChild(blankImageEl);
+
+  const imageEl = document.createElement('div');
+  imageEl.classList.add('image__container');
+
+  // imageEl.src = src;
+  // imageEl.alt = alt;
+
+  commentEl.appendChild(imageEl);
 
   const textEl = document.createElement('p');
   textEl.classList.add('text__container');
   textEl.innerText = commentOutput.comment;
   commentEl.appendChild(textEl);
 
-  console.log(commentEl);
   return commentEl;
 
-  // const commentEl = createDiv('comment-input__info');
-  // nameEl.append(El); 
 
-  // const imageEl = commentOutput.avatar !== "" ? createImg("avatar__image", commentOutput.avatar, commentOutput.name) : createDiv("avatar__no-img");
-  // nameEl.append(imageEl);
-
-  // commentsCurrentEl.append(comments);
+// Comments 
 }
 function showComments () {
   let showComments = () => {
     const commentDisplay = document.querySelector(".comments-section");
     commentDisplay.replaceChildren();
-    
+
     const sortedComments = [...comments].reverse();
     for (let i = 0; i < sortedComments.length; i++ ){
       const commentAll = displayComment(sortedComments[i]);
@@ -85,11 +101,42 @@ function showComments () {
 }
 showComments();
 
+// Button
+comments-form.addEventListener('submit' , (e) => {
+  e.preventDefault();
+  const date = new Date ();
+  const newComment = {
+    name: e.target.nameText.value,
+    comment: e.target.commentText.value,
+    // time: target.time.value,
+    date: date.toLocaleDateString('en-US', {
+    year: 'numeric', month: '2-digit',day: '2-digit',
+    }),
+  };
+
+  comments.push(newComment);
+  showComments();
+});
+
+// Date
+function formatDate(date) {
+
+}
+
+
+// render();
+// form.reset();
+
 // render();
 
 // function render() {
+//   const commentSect = document.querySelector(".comments-section");
 //   commentSect.replaceChildren();
-//   comments.forEach(displayComment);
+
+//   comments.forEach(comment => {
+//     const commentEl = displayComment(comment);
+//     commentSect.appendChild(commentEl);
+//   });
 // }
 
 
@@ -145,34 +192,9 @@ showComments();
 // 
 // const form = document.getElementById("comments-form");
 
-// commentSect.addEventListener('submit' , (e) => {
-//   e.preventDefault();
-//   const name = nameInput.textContent;
-//   const comment = commentInput.textContent; 
-//   const newComment = {
-//     name: 'name' ,
-//     comment: 'comment' ,
-//     date: new Date () ,
-//   }
-
 //   comments.push(newComment);
 //   displayComment(newComment);
 // // Not sure if I should push new comment or just comment
 //   render();
 // });
 
-// function render() {
-//   console.log("Rendering comments...");
-//   commentSect.replaceChildren();
-//   comments.forEach(displayComment);
-// }
-
-
-  
-  
-
-
-
-//  for Date's
-// const date = new Date("08/14/2024")
-// console.log(date.toLocaleDateString()) // output: '8/14/2024

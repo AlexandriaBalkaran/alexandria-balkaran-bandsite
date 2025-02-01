@@ -402,6 +402,34 @@ footer .footer__logo--align {
   }
 }
 
+.show {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+.show-list__dateSubheader, .show-list__venueSubheader, .show-list__locationSubheader {
+  color: #afafaf;
+}
+.show-list__date {
+  font-weight: 700;
+}
+.show-list__tickets {
+  background-color: #323232;
+  color: #ffffff;
+  border-radius: 0.25rem;
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  font-family: "Nunito Sans";
+  font-size: 0.625rem;
+  line-height: 1.25rem;
+  font-weight: 700;
+}
+iframe {
+  width: 20rem;
+  height: 10rem;
+}
+
 .iframe--flex {
   display: flex;
   z-index: 4;

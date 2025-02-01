@@ -455,4 +455,49 @@ footer .footer__logo--align {
   .gallery__row {
     padding: 0 4rem;
   }
+}
+
+.name-date__container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.image__container {
+  width: 3rem;
+  height: 3rem;
+  background-color: #e1e1e1;
+  border-radius: 50%;
+}
+
+.form__container--flex {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+
+.form__name--flex {
+  display: flex;
+  flex-direction: column;
+  font-family: "Nunito Sans";
+  font-size: 0.625rem;
+  line-height: 1.25rem;
+  font-weight: 700;
+}
+
+.form__comment--flex {
+  display: flex;
+  flex-direction: column;
+  font-family: "Nunito Sans";
+  font-size: 0.625rem;
+  line-height: 1.25rem;
+  font-weight: 700;
+}
+
+.form__image {
+  width: 20%;
+}
+.form__image--size {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
 }/*# sourceMappingURL=bio.css.map */
