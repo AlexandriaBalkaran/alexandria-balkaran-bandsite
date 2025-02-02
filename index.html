@@ -132,21 +132,26 @@
         <h2>Join the Conversation</h2>
           <div class="form" id="form">
             <form class="comments-form">
-              <div class="form__image">
-                <img class="form__image--size" src="/assets/images/Mohan-muruge.jpg" alt="avatar icon of a side profile of a man">
+              <div class="form__input--flex">
+                  <div class="form__image">
+                    <img class="form__image--size" src="/assets/images/Mohan-muruge.jpg" alt="avatar icon of a side profile of a man">
+                  </div>
+                <div class="form__container--flex">
+                  <label class="form__name--flex">
+                    NAME
+                    <input type="text" name="nameText" class="name-input" placeholder="Enter your name">
+                  </label>
+                  <label class="form__comment--flex">
+                    COMMENT
+                    <textarea name="commentText" class="comment-input" placeholder="Add a new comment"></textarea>
+                  </label>
+                  <div class="comment__button--flex">
+                    <button class="comment__button--style" type="submit">COMMENT</button>
+                  </div>
+                </div>
               </div>
-              <div class="form__container--flex">
-                <label class="form__name--flex">
-                  NAME
-                  <input type="text" name="nameText" id="name-input" placeholder="Enter your name">
-                </label>
-                <label class="form__comment--flex">
-                  COMMENT
-                  <textarea name="commentText" id="comment-input" placeholder="Add a new comment"></textarea>
-                </label>
-                <button type="submit">COMMENT</button>
-              </div>
-                <div class="comments-section"></div>
+                <div class="comments-section">
+                </div>
             </form>
           </div>
       </section>

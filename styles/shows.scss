@@ -18,6 +18,9 @@
   &-content {
     display: flex;
     flex-direction: column;
+    @include tablet {
+      padding-left: 1.25rem;
+    }
     @include desktop {
       flex-direction: row;
     }
@@ -39,7 +42,6 @@
   @include fontBody-Mobile;
 
   @include tablet {
-    padding-left: 2.25rem;
     @include fontBody-Desktop;
   }
   @include desktop {
@@ -50,9 +52,71 @@
   padding: 1rem;
   display: flex;
   flex-direction: column;
+  border-bottom: 1px solid $secondarySilver;
+  
+  @include tablet {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &:hover {
+    background-color: $secondaryWhite;
+    cursor: pointer;
+  }
+  &:active {
+    background-color: $secondarySilver;
+  }
+  @include tablet {
+    padding: 1.5rem 1.125rem;
+    display: flex;
+    flex-direction: row;
+  }
+
+  h2 {
+    @include tablet {
+      position: absolute;
+      padding-left: 1rem;
+    }
+  }
+  &__subheader {
+    display: none;
+    @include tablet {
+      display: flex;
+      color: $primarySilver;
+    }
+  }
+
+  &-list {
+    @include tablet {
+    padding-top: 5rem;
+    width: 100%;
+    @include fontBody-Desktop
+    }
+    @include desktop {
+    position: relative;
+    width: 70%;
+    bottom: 4rem;
+    right: 4rem;
+    }
+
+    &__info {
+      display: flex;
+
+      @include tablet {
+      justify-content: space-between;
+      width: 65%;
+      padding-left: 1.125rem;
+      padding-top: 4rem;
+      }
+    }
+  }
 
   &-list__dateSubheader, &-list__venueSubheader, &-list__locationSubheader {
     color: $primarySilver;
+
+    @include tablet {
+      display: none;
+    }
   }
   &-list__date {
     font-weight: 700;
@@ -61,26 +125,31 @@
     background-color: $primaryBlack;
     color: $primaryWhite;
     border-radius: .25rem;
-    width: 60%;
-    display: flex;
-    justify-content: center;
+    min-width: 8rem;
+    max-width: 20rem;
+    height: 2rem;
+    @include flexCenter;
     @include fontLabel-Mobile;
-    @include tablet;
+    @include fontLabel-Desktop;
   }
 }
 iframe {
   width: 20rem;
-  height: 10rem;
+  height: 6rem;
+  object-fit: cover;
 }
 .iframe {
+  overflow: hidden;
+  height: 6rem;
+
   &--flex {
   display: flex;
   z-index: 4;
   padding: 1rem;
+  align-items: center;
+  }
 
-  @include tablet {
-  }
-  @include desktop {
-  }
+  &__style {
+    display: none;
   }
 }

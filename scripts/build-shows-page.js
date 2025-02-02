@@ -33,22 +33,12 @@ const shows = [
 
 
 
-// Notes
 const list = document.querySelector('.show-list');
-const showContent = document.querySelector('.show-list__content')
-
-// const dateSubheaderText = document.querySelector('show-date__subheader');
-// const venueSubheaderText = document.querySelector('show-venue__subheader');
-// const locationSubheaderText = document.querySelector('show-location__subheader');
+const showContent = document.querySelector('.show-list__content');
 
 for (const showObj of shows) {
   const show = document.createElement ("div");
   show.classList.add("show");
-  // const show = document.createElement ("div");
-  // show.classList.add("show-list__title");
-
-  // const date = show.querySelector('#show-date')
-  // date.textContent = showObj.date
 
   const dateSubheader  = document.createElement("p");
   dateSubheader.classList.add('show-list__dateSubheader');
@@ -87,26 +77,3 @@ for (const showObj of shows) {
 
   list.append(show);
 }
-
-// //   Notes
-// const list = document.getElementById('show-list')
-
-// for (let i = 0; i < shows.length; i++) {
-//     const showObj = shows[i]
-// const show = document.createElement ("div");
-// show.classList.add("show");
-// show.textContent = showObj.venue + "-" + showObj.date;
-// list.appendChild(show);
-// }
-
-// Notes
-// const list = document.getElementById('show-list')
-
-// for (let i = 0; i < shows.length; i++) {
-//   const showObj = shows[i]
-
-//   const show = document.createElement ("div");
-//   show.classList.add("show");
-
-//   show.textContent = showObj.venue + showObj.date;
-// }

@@ -18,27 +18,15 @@ const comments = [
       date: new Date("11/02/2023"),
     },
   ];
-  const date = new Date("08/14/2024")
-  console.log(date.toLocaleDateString()) // output: '8/14/2024'
 
-  // const listEl = document.getElementById('list');
 
-  // const commentSection = document.getElementById('comments-form');
-  // const newForm = document.createElement('form');
-  // newForm.id = 'new-form';
-  // const input = document.createElement('input');
-  // const button = document.createElement('button');
-
-// const commentForm = document.getElementById('comment-form');
 const commentSect = document.getElementById('comment__section');
 const nameInput = document.getElementById('name-input');
 const commentInput = document.getElementById('comment-input');
-// const commentsCurrentEl = document.getElementById("comments-current");
 
 comments.forEach(displayComment);
 
 function displayComment(commentOutput) {
-  // console.log('Displaying comment:', commentOutput); 
   const commentEl = document.createElement('div');
   commentEl.classList.add('comment__container');
 
@@ -64,15 +52,8 @@ function displayComment(commentOutput) {
 
   commentEl.appendChild(nameDateContainer);
 
-  // const blankImageEl = document.createElement('div');
-  // blankImageEl.classList.add('Image--blank');
-  // commentEl.appendChild(blankImageEl);
-
   const imageEl = document.createElement('div');
   imageEl.classList.add('image__container');
-
-  // imageEl.src = src;
-  // imageEl.alt = alt;
 
   commentEl.appendChild(imageEl);
 
@@ -108,7 +89,6 @@ comments-form.addEventListener('submit' , (e) => {
   const newComment = {
     name: e.target.nameText.value,
     comment: e.target.commentText.value,
-    // time: target.time.value,
     date: date.toLocaleDateString('en-US', {
     year: 'numeric', month: '2-digit',day: '2-digit',
     }),
@@ -117,84 +97,4 @@ comments-form.addEventListener('submit' , (e) => {
   comments.push(newComment);
   showComments();
 });
-
-// Date
-function formatDate(date) {
-
-}
-
-
-// render();
-// form.reset();
-
-// render();
-
-// function render() {
-//   const commentSect = document.querySelector(".comments-section");
-//   commentSect.replaceChildren();
-
-//   comments.forEach(comment => {
-//     const commentEl = displayComment(comment);
-//     commentSect.appendChild(commentEl);
-//   });
-// }
-
-
-
-// function createDiv(className, textContent) {
-//   const div = document.createElement('div');
-//   div.className = className;
-//   div.textContent = textContent;
-//   // console.log('Created div:', div);
-//   return div;
-// }
-// function createImg(className, src, alt) {
-//   const img = document.createElement("img");
-//   img.className = className;
-//   img.src = src;
-//   img.alt = alt;
-//   // console.log('Created Image:', img);
-//   return img;
-// }
-// function displayComment(comment) {
-//   // console.log("Displaying comment:", comment);
-//   const commentEl = document.createElement('div');
-//   commentEl.classList.add('comment');
-//   commentEl.textContent = comment.comment;
-//   // comment.append(commentEl);
-// }
-
-// PART 2
-
-// const form = document.getElementById("form");
-
-// form.addEventListener("submit", (e) => {
-//   e.preventDefault();
-
-//   const commentOutput = {
-//     name: e.target.name.value,
-//     comment: e.target.comment.value,
-//     avatar: e.target.image.value,
-//   };
-// });
-
-//   comments.push(commentOutput);
-//   render();
-//   form.reset();
-// });
-
-// function render() {
-//   commentsCurrentEl.replaceChildren();
-//   comments.forEach(displayComment);
-// }
-
-// 
-// 
-// const form = document.getElementById("comments-form");
-
-//   comments.push(newComment);
-//   displayComment(newComment);
-// // Not sure if I should push new comment or just comment
-//   render();
-// });
 
