@@ -1,43 +1,129 @@
 const API_KEY = "fedd3493-dc9c-4716-b939-1762172f811d";
-const commentApi = new BandsiteApi(API_KEY);
+const BASE_URL = "https://unit-2-project-api-25c1595833b2.herokuapp.com/";
 
-console.log(commentApi);
+const commentForm = document.getElementById("comments__form");
+const commentSect = document.getElementById("comments__section");
+console.log('Works');
+
+commentsRender();
+
+commentForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const name = e.target.name.value;
+  const comment = e.target.comment.value;
+  // const timestamp = timestamp.value;
+  
+  const postComment = {
+    name,
+    comment
+    // timestamp,
+  };
+
+  try {
+    await axios.post(`${BASE_URL}comments?api_key=${API_KEY}`, postComment);
+    // getComments();
+  } catch (e) {
+    console.log(e);
+    console.log('try is working');
+  }
+});
+
+// Functions
+async function commentsRender() {
+  try {
+    const response = await axios.get(`${BASE_URL}comments?api_key=${API_KEY}`);
+    const commentsHello = response.data;
+    console.log(commentsHello);
+
+    commentSect.innerHTML = "";
+    console.log(commentSect.innerHTML);
+
+    commentsHello.forEach((comment) => {
+      // const timestamp = new Date(timestamp);
+      // const commentSect = document.createElement("div");
+      // const dateFormat = 
+
+      const commentEl = displayComment(comment);
+      console.log('does this work');
+      
+      
+      // commentSect.textContent = `${name} -- ${date.toLocaleDateString()} -- ${comment}`;
+      commentSect.appendChild(commentEl);
+      console.log(commentSect)
+      
+    });
+  } catch (e) {
+    console.log('function works')
+}};
 
 
-const commentForm = document.getElementsByClassName("comments__form");
-const commentSect = document.getElementsByClassName("comments__section");
 
-const commentsRender =  async (e) => {
-    try {
-        const comments = await commentApi.getComments(
-          {
-            "name": e.target.name.value,
-            "comment": e.target.comment.value,
-            "timestamp": e.target.timestamp.value,
-          }
-        );
-        console.log(comments);
-        const getComment = await commentApi.addComment(
+
+// function displayComment ({name, comment, timestamp}) {
+//   const date = new Date(timestamp);
+//   const commentForm = document.getElementsByClassName(comment__form);
+//   commentForm.textContent = `$(name) -- ${date.toLocaleDateString()} -- ${comment}`;
+  // commentSect.append(commentForm);
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const commentForm = document.querySelector("comments__form");
+// const commentSect = document.querySelector("comments__section");
+
+// const commentsRender =  async (e) => {
+//     try {
+//         const comments = await commentApi.getComments(
+//           {
+//             "name": e.target.name.value,
+//             "comment": e.target.comment.value,
+//             "timestamp": e.target.timestamp.value,
+//           }
+//         );
+//         console.log(comments);
+//         const addComment = await commentApi.addComment()
+
+
           // {"name": e.target.name.value,
           //   "comment": e.target.comment.value,
           //   "timestamp": e.target.timestamp.value
-          //   "date": new Date().toLocaleDateString('en-US', {
-          //   "year": 'numeric', month: '2-digit',day: '2-digit',
-          // }),          
+          // //   "date": new Date().toLocaleDateString('en-US', {
+          // //   "year": 'numeric', month: '2-digit',day: '2-digit',
+          // });          
 
         // }
-      )
-      console.log(getComment);
-      const newComments = await commentApi.getComments()
-      console.log(newComments);
-      // const deleteComment = await commentApi.deleteComment("")
-      // console.log (deleteComment);
-    } catch (error) {
-        console.log("Error fetching comments:", error);
-    }
-};
+      
+//       console.log(addComment);
+//       const newComments = await commentApi.getComments()
 
-commentsRender();
+
+//       //  {
+//       //   name,
+//       //   comment,
+//       //   timestamp,}
+//       // ;
+
+
+//       console.log(newComments);
+//       const deleteComment = await commentApi.deleteComment("")
+//       console.log (deleteComment);
+//     } catch (error) {
+//         console.log("Error fetching comments:", error);
+//     }
+// };
+
+// commentsRender();
 
 
 
@@ -46,6 +132,7 @@ commentsRender();
 
 
 function displayComment(commentOutput) {
+  console.log(commentOutput);
   const commentEl = document.createElement('div');
   commentEl.classList.add('comment__container');
 
@@ -60,7 +147,7 @@ function displayComment(commentOutput) {
   const dateEl = document.createElement('p');
   dateEl.classList.add('date__container');
 
-  const dateFormat = new Date(commentOutput.date).toLocaleDateString('en-US', {
+  const dateFormat = new Date(commentOutput.timestamp).toLocaleDateString('en-US', {
     year: 'numeric' ,
     month: '2-digit' ,
     day: '2-digit' ,
@@ -84,33 +171,7 @@ function displayComment(commentOutput) {
   return commentEl;
 }
 
-// // Axios data
-// document.getElementsByClassName('comment__form').addEventListener('submit', function (e) {
-//   e.preventDefault();
-//   commentsRender(e);
-// })
-// render();
-
-// commentForm.addEventListener("submit", async (e) => {
-//   e.preventDefault();
-//   try {
-//     const resp = await axios.post(`${BASE_URL}/comments?api_key=${API_KEY}`, {
-//       name: e.target.nameText.value,
-//       comment: e.target.commentText.value,
-//       date: new Date().toLocaleDateString('en-US', {
-//         year: 'numeric',
-//         month: '2-digit',
-//         day: '2-digit',
-//       })
-//     });
-//       console.log(resp);
-//     } catch (e) {
-//       console.log(e);
-//     }
-// });
-
-
-
+commentsRender();
 
 
 // Comments 
@@ -130,7 +191,7 @@ function displayComment(commentOutput) {
 // showComments();
 
 // Button
-// comments__form.addEventListener('submit' , (e) => {
+// commentsForm.addEventListener('submit' , (e) => {
 //   e.preventDefault();
 //   const date = new Date ();
 //   const newComment = {
@@ -167,3 +228,32 @@ function displayComment(commentOutput) {
 //     console.log(e);
 //   }
 // }
+
+
+
+
+
+// // Axios data first attempt
+// document.getElementsByClassName('comment__form').addEventListener('submit', function (e) {
+//   e.preventDefault();
+//   commentsRender(e);
+// })
+// render();
+
+// commentForm.addEventListener("submit", async (e) => {
+//   e.preventDefault();
+//   try {
+//     const resp = await axios.post(`${BASE_URL}/comments?api_key=${API_KEY}`, {
+//       name: e.target.nameText.value,
+//       comment: e.target.commentText.value,
+//       date: new Date().toLocaleDateString('en-US', {
+//         year: 'numeric',
+//         month: '2-digit',
+//         day: '2-digit',
+//       })
+//     });
+//       console.log(resp);
+//     } catch (e) {
+//       console.log(e);
+//     }
+// });

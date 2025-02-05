@@ -8,7 +8,7 @@
     <!-- <script src="https://unit-2-project-api-25c1595833b2.herokuapp.com/" defer></script> -->
     <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script>axios.get('http://domain.com/api')</script> -->
-    <script src="https://unpkg.com/axios/dist/axios.min.js" defer></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="/scripts/band-site-api.js" defer></script>
     <script src="/scripts/index-page.js" defer></script>
   </head>
@@ -136,7 +136,7 @@
       <section>
         <h2>Join the Conversation</h2>
           <div class="form" id="form">
-            <form class="comments__form">
+            <form class="comments__form" id="comments__form">
               <div class="form__input--flex">
                   <div class="form__image">
                     <img class="form__image--size" src="/assets/images/Mohan-muruge.jpg" alt="avatar icon of a side profile of a man">
@@ -144,19 +144,19 @@
                 <div class="form__container--flex">
                   <label class="form__name--flex">
                     NAME
-                    <input type="text" name="nameText" class="name-input" placeholder="Enter your name">
+                    <input type="text" name="name" class="name-input" placeholder="Enter your name">
                   </label>
                   <label class="form__comment--flex">
                     COMMENT
-                    <textarea name="commentText" class="comment-input" placeholder="Add a new comment"></textarea>
+                    <textarea name="comment" class="comment-input" placeholder="Add a new comment"></textarea>
                   </label>
                   <div class="comment__button--flex">
                     <button class="comment__button--style" type="submit">COMMENT</button>
                   </div>
                 </div>
               </div>
-                <div class="comments__section">
-                </div>
+              <div class="comments__section" id="comments__section">
+              </div>
             </form>
           </div>
       </section>
