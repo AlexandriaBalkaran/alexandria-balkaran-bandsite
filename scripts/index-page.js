@@ -1,30 +1,49 @@
-const comments = [
-    {
-      name: "Isaac Tadesse",
-      comment:
-        "I can't stop listening. Every time I hear one of their songs - the vocals - it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can't get enough.",
-      date: new Date("10/20/2023"),
-    },
-    {
-      name: "Christina Cabrera",
-      comment:
-        "I feel blessed to have seen them in person. What a show! They were just perfection. If there was one day of my life I could relive, this would be it. What an incredible day.",
-      date: new Date("10/28/2023"),
-    },
-    {
-      name: "Victor Pinto",
-      comment:
-        "This is art. This is inexplicable magic expressed in the purest way, everything that makes up this majestic work deserves reverence. Let us appreciate this for what it is and what it contains.",
-      date: new Date("11/02/2023"),
-    },
-  ];
+const API_KEY = "fedd3493-dc9c-4716-b939-1762172f811d";
+const commentApi = new BandsiteApi(API_KEY);
+
+console.log(commentApi);
 
 
-const commentSect = document.getElementById('comment__section');
-const nameInput = document.getElementById('name-input');
-const commentInput = document.getElementById('comment-input');
+const commentForm = document.getElementsByClassName("comments__form");
+const commentSect = document.getElementsByClassName("comments__section");
 
-comments.forEach(displayComment);
+const commentsRender =  async (e) => {
+    try {
+        const comments = await commentApi.getComments(
+          {
+            "name": e.target.name.value,
+            "comment": e.target.comment.value,
+            "timestamp": e.target.timestamp.value,
+          }
+        );
+        console.log(comments);
+        const getComment = await commentApi.addComment(
+          // {"name": e.target.name.value,
+          //   "comment": e.target.comment.value,
+          //   "timestamp": e.target.timestamp.value
+          //   "date": new Date().toLocaleDateString('en-US', {
+          //   "year": 'numeric', month: '2-digit',day: '2-digit',
+          // }),          
+
+        // }
+      )
+      console.log(getComment);
+      const newComments = await commentApi.getComments()
+      console.log(newComments);
+      // const deleteComment = await commentApi.deleteComment("")
+      // console.log (deleteComment);
+    } catch (error) {
+        console.log("Error fetching comments:", error);
+    }
+};
+
+commentsRender();
+
+
+
+
+
+
 
 function displayComment(commentOutput) {
   const commentEl = document.createElement('div');
@@ -63,38 +82,88 @@ function displayComment(commentOutput) {
   commentEl.appendChild(textEl);
 
   return commentEl;
+}
+
+// // Axios data
+// document.getElementsByClassName('comment__form').addEventListener('submit', function (e) {
+//   e.preventDefault();
+//   commentsRender(e);
+// })
+// render();
+
+// commentForm.addEventListener("submit", async (e) => {
+//   e.preventDefault();
+//   try {
+//     const resp = await axios.post(`${BASE_URL}/comments?api_key=${API_KEY}`, {
+//       name: e.target.nameText.value,
+//       comment: e.target.commentText.value,
+//       date: new Date().toLocaleDateString('en-US', {
+//         year: 'numeric',
+//         month: '2-digit',
+//         day: '2-digit',
+//       })
+//     });
+//       console.log(resp);
+//     } catch (e) {
+//       console.log(e);
+//     }
+// });
+
+
+
 
 
 // Comments 
-}
-function showComments () {
-  let showComments = () => {
-    const commentDisplay = document.querySelector(".comments-section");
-    commentDisplay.replaceChildren();
+// function showComments () {
+//   let showComments = () => {
+//     const commentDisplay = document.querySelector(".comments-section");
+//     commentDisplay.replaceChildren();
 
-    const sortedComments = [...comments].reverse();
-    for (let i = 0; i < sortedComments.length; i++ ){
-      const commentAll = displayComment(sortedComments[i]);
-      commentDisplay.appendChild(commentAll);
-    }
-  };
-  showComments();
-}
-showComments();
+//     const sortedComments = [...comments].reverse();
+//     for (let i = 0; i < sortedComments.length; i++ ){
+//       const commentAll = displayComment(sortedComments[i]);
+//       commentDisplay.appendChild(commentAll);
+//     }
+//   };
+//   showComments();
+// }
+// showComments();
 
 // Button
-comments-form.addEventListener('submit' , (e) => {
-  e.preventDefault();
-  const date = new Date ();
-  const newComment = {
-    name: e.target.nameText.value,
-    comment: e.target.commentText.value,
-    date: date.toLocaleDateString('en-US', {
-    year: 'numeric', month: '2-digit',day: '2-digit',
-    }),
-  };
+// comments__form.addEventListener('submit' , (e) => {
+//   e.preventDefault();
+//   const date = new Date ();
+//   const newComment = {
+//     name: e.target.nameText.value,
+//     comment: e.target.commentText.value,
+//     date: date.toLocaleDateString('en-US', {
+//     year: 'numeric', month: '2-digit',day: '2-digit',
+//     }),
+//   };
 
-  comments.push(newComment);
-  showComments();
-});
+//   comments.push(newComment);
+//   showComments();
+// });
 
+
+
+
+
+// IDK IF ILL USED THIS LATER
+// const BASE_URL = "https://unit-2-project-api-25c1595833b2.herokuapp.com/";
+// const API_KEY = "fedd3493-dc9c-4716-b939-1762172f811d";
+
+// const commentForm = document.getElementById("comments__form");
+// const commentSect = document.getElementById("comments__section");
+
+
+// async function render() {
+//   try {
+//     const resp = await axios.get(`${BASE_URL}/comments?api_key=${API_KEY}`);
+//     const comments = resp.data;
+//     console.log(comments);
+//     commentSect.textContent = comments.length;
+//   } catch (e) {
+//     console.log(e);
+//   }
+// }
