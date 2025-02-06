@@ -21,7 +21,9 @@ commentForm.addEventListener("submit", async (e) => {
 
   try {
     await axios.post(`${BASE_URL}comments?api_key=${API_KEY}`, postComment);
-    // getComments();
+
+    addNewComment(postComment);
+
   } catch (e) {
     console.log(e);
     console.log('try is working');
@@ -32,16 +34,18 @@ commentForm.addEventListener("submit", async (e) => {
 async function commentsRender() {
   try {
     const response = await axios.get(`${BASE_URL}comments?api_key=${API_KEY}`);
-    const commentsHello = response.data;
-    console.log(commentsHello);
+    const commentsAll = response.data;
+    console.log(commentsAll);
 
     commentSect.innerHTML = "";
     console.log(commentSect.innerHTML);
 
-    commentsHello.forEach((comment) => {
+    commentsAll.forEach((comment) => {
       // const timestamp = new Date(timestamp);
       // const commentSect = document.createElement("div");
       // const dateFormat = 
+
+      
 
       const commentEl = displayComment(comment);
       console.log('does this work');
@@ -49,6 +53,7 @@ async function commentsRender() {
       
       // commentSect.textContent = `${name} -- ${date.toLocaleDateString()} -- ${comment}`;
       commentSect.appendChild(commentEl);
+      // commentSect.prepend(commentEl);
       console.log(commentSect)
       
     });
@@ -56,7 +61,13 @@ async function commentsRender() {
     console.log('function works')
 }};
 
+function addNewComment(newComment) {
+  commentsOriginal.push(newComment);
 
+  const commentEl = displayComment(newComment);
+  commentSect.insertBefore(commentEl, commentSect.firstChild);
+};
+      
 
 
 // function displayComment ({name, comment, timestamp}) {
