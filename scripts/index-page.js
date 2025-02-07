@@ -3,17 +3,16 @@ const BASE_URL = "https://unit-2-project-api-25c1595833b2.herokuapp.com/";
 
 const commentForm = document.getElementById("comments__form");
 const commentSect = document.getElementById("comments__section");
-console.log('Works');
-
 const commentsOriginal = [];
+
 
 commentsRender();
 
+// Comment button
 commentForm.addEventListener("submit", async (e) => {
   e.preventDefault();
   const name = e.target.name.value;
   const comment = e.target.comment.value;
-  const timestamp = new Date().toISOString();
   
   const postComment = {
     name,
@@ -24,12 +23,24 @@ commentForm.addEventListener("submit", async (e) => {
     await axios.post(`${BASE_URL}comments?api_key=${API_KEY}`, postComment);
 
     addNewComment(postComment);
+    console.log('works');
 
   } catch (e) {
     console.log(e);
-    console.log('try is working');
   }
 });
+
+// Delete Button 
+async function deleteComment(commentId) {
+  const url=`${BASE_URL}/comments/${commentId}?api_key=${API_KEY}`
+  try {
+    const response = await axios.delete(url);
+    return response.data;
+  } catch (e) {
+    console.error('error deleting', error);
+    throw error;
+  }
+};
 
 // Functions
 async function commentsRender() {
@@ -50,13 +61,9 @@ async function commentsRender() {
 
 
       const commentEl = displayComment(comment);
-      console.log('does this work');
       
       
-      // commentSect.textContent = `${name} -- ${date.toLocaleDateString()} -- ${comment}`;
       commentSect.appendChild(commentEl);
-      // commentSect.prepend(commentEl);
-      console.log(commentSect)
       
     });
   } catch (e) {
@@ -71,79 +78,7 @@ function addNewComment(newComment) {
 };
       
 
-
-// function displayComment ({name, comment, timestamp}) {
-//   const date = new Date(timestamp);
-//   const commentForm = document.getElementsByClassName(comment__form);
-//   commentForm.textContent = `$(name) -- ${date.toLocaleDateString()} -- ${comment}`;
-  // commentSect.append(commentForm);
-// }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// const commentForm = document.querySelector("comments__form");
-// const commentSect = document.querySelector("comments__section");
-
-// const commentsRender =  async (e) => {
-//     try {
-//         const comments = await commentApi.getComments(
-//           {
-//             "name": e.target.name.value,
-//             "comment": e.target.comment.value,
-//             "timestamp": e.target.timestamp.value,
-//           }
-//         );
-//         console.log(comments);
-//         const addComment = await commentApi.addComment()
-
-
-          // {"name": e.target.name.value,
-          //   "comment": e.target.comment.value,
-          //   "timestamp": e.target.timestamp.value
-          // //   "date": new Date().toLocaleDateString('en-US', {
-          // //   "year": 'numeric', month: '2-digit',day: '2-digit',
-          // });          
-
-        // }
-      
-//       console.log(addComment);
-//       const newComments = await commentApi.getComments()
-
-
-//       //  {
-//       //   name,
-//       //   comment,
-//       //   timestamp,}
-//       // ;
-
-
-//       console.log(newComments);
-//       const deleteComment = await commentApi.deleteComment("")
-//       console.log (deleteComment);
-//     } catch (error) {
-//         console.log("Error fetching comments:", error);
-//     }
-// };
-
-// commentsRender();
-
-
-
-
-
-
-
+// Containers to display contents
 function displayComment(commentOutput) {
   console.log(commentOutput);
   const commentEl = document.createElement('div');
@@ -171,102 +106,54 @@ function displayComment(commentOutput) {
 
   commentEl.appendChild(nameDateContainer);
 
+// Create image container
   const imageEl = document.createElement('div');
   imageEl.classList.add('image__container');
 
   commentEl.appendChild(imageEl);
 
+// Container for p tag
+  const textContainer = document.createElement('div');
+  textContainer.classList.add('text__container');
+
+// Create p tag
   const textEl = document.createElement('p');
   textEl.classList.add('text__container');
   textEl.innerText = commentOutput.comment;
-  commentEl.appendChild(textEl);
+
+// Append p tag to new container
+  textContainer.appendChild(textEl);
+
+// Append new text to container
+  commentEl.appendChild(textContainer);
+
+// Delete button
+const deleteButton = document.createElement('button');
+deleteButton.classList.add('button__delete');
+// deleteButton.innerText = "Delete";
+
+deleteButton.innerHTML = '<img src="../assets/icons/icons-delete.svg">';
+
+// CANNOT MAKE THE IMAGE APPEAR
+// const deleteImg = document.createElement('img');
+//   deleteImg.src = "../assets/icons/icons-delete.svg";
+//   deleteImg.alt = "image of a garbage can for the delete button";
+// deleteImg.classList.add('button__delete-image');
+
+deleteButton.addEventListener ('click', async () => {
+  try {
+    await axios.deleteComment(`${BASE_URL}/${commentsId}/?api_key=${API_KEY}`);
+    
+     // remove container
+    commentEl.remove();
+
+  } catch (e) {
+    console.error('can not delete:', e);
+  }
+});
+  commentEl.appendChild(deleteButton);
 
   return commentEl;
 }
 
 commentsRender();
-
-
-// Comments 
-// function showComments () {
-//   let showComments = () => {
-//     const commentDisplay = document.querySelector(".comments-section");
-//     commentDisplay.replaceChildren();
-
-//     const sortedComments = [...comments].reverse();
-//     for (let i = 0; i < sortedComments.length; i++ ){
-//       const commentAll = displayComment(sortedComments[i]);
-//       commentDisplay.appendChild(commentAll);
-//     }
-//   };
-//   showComments();
-// }
-// showComments();
-
-// Button
-// commentsForm.addEventListener('submit' , (e) => {
-//   e.preventDefault();
-//   const date = new Date ();
-//   const newComment = {
-//     name: e.target.nameText.value,
-//     comment: e.target.commentText.value,
-//     date: date.toLocaleDateString('en-US', {
-//     year: 'numeric', month: '2-digit',day: '2-digit',
-//     }),
-//   };
-
-//   comments.push(newComment);
-//   showComments();
-// });
-
-
-
-
-
-// IDK IF ILL USED THIS LATER
-// const BASE_URL = "https://unit-2-project-api-25c1595833b2.herokuapp.com/";
-// const API_KEY = "fedd3493-dc9c-4716-b939-1762172f811d";
-
-// const commentForm = document.getElementById("comments__form");
-// const commentSect = document.getElementById("comments__section");
-
-
-// async function render() {
-//   try {
-//     const resp = await axios.get(`${BASE_URL}/comments?api_key=${API_KEY}`);
-//     const comments = resp.data;
-//     console.log(comments);
-//     commentSect.textContent = comments.length;
-//   } catch (e) {
-//     console.log(e);
-//   }
-// }
-
-
-
-
-
-// // Axios data first attempt
-// document.getElementsByClassName('comment__form').addEventListener('submit', function (e) {
-//   e.preventDefault();
-//   commentsRender(e);
-// })
-// render();
-
-// commentForm.addEventListener("submit", async (e) => {
-//   e.preventDefault();
-//   try {
-//     const resp = await axios.post(`${BASE_URL}/comments?api_key=${API_KEY}`, {
-//       name: e.target.nameText.value,
-//       comment: e.target.commentText.value,
-//       date: new Date().toLocaleDateString('en-US', {
-//         year: 'numeric',
-//         month: '2-digit',
-//         day: '2-digit',
-//       })
-//     });
-//       console.log(resp);
-//     } catch (e) {
-//       console.log(e);
-//     }
-// });
