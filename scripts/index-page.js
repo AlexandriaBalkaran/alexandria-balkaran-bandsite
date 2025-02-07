@@ -5,18 +5,19 @@ const commentForm = document.getElementById("comments__form");
 const commentSect = document.getElementById("comments__section");
 console.log('Works');
 
+const commentsOriginal = [];
+
 commentsRender();
 
 commentForm.addEventListener("submit", async (e) => {
   e.preventDefault();
   const name = e.target.name.value;
   const comment = e.target.comment.value;
-  // const timestamp = timestamp.value;
+  const timestamp = new Date().toISOString();
   
   const postComment = {
     name,
-    comment
-    // timestamp,
+    comment,
   };
 
   try {
@@ -37,6 +38,8 @@ async function commentsRender() {
     const commentsAll = response.data;
     console.log(commentsAll);
 
+    commentsAll.sort((a,b) => new Date(b.timestamp) - new Date(a.timestamp));
+
     commentSect.innerHTML = "";
     console.log(commentSect.innerHTML);
 
@@ -45,7 +48,6 @@ async function commentsRender() {
       // const commentSect = document.createElement("div");
       // const dateFormat = 
 
-      
 
       const commentEl = displayComment(comment);
       console.log('does this work');

@@ -175,6 +175,7 @@
   color: $primaryWhite;
   border: none;
   width: 100%;
+  cursor: pointer;
   @include tablet {
     min-width: 9.375rem;
     max-width: 15.625rem;

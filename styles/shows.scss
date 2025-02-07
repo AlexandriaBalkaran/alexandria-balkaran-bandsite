@@ -58,11 +58,7 @@
     display: flex;
     justify-content: space-between;
   }
-
-  &:hover {
-    background-color: $secondaryWhite;
-    cursor: pointer;
-  }
+  
   &:active {
     background-color: $secondarySilver;
   }
@@ -109,6 +105,16 @@
       padding-top: 4rem;
       }
     }
+      .show {
+        &:hover {
+          background-color: $secondaryWhite;
+          cursor: pointer;
+        }
+        &:active {
+          background-color: $secondarySilver;
+          cursor: pointer;
+        }
+      }
   }
 
   &-list__dateSubheader, &-list__venueSubheader, &-list__locationSubheader {
@@ -128,6 +134,7 @@
     min-width: 8rem;
     max-width: 20rem;
     height: 2rem;
+    cursor: pointer;
     @include flexCenter;
     @include fontLabel-Mobile;
     @include fontLabel-Desktop;
