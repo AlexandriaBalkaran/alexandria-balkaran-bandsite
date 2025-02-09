@@ -25,6 +25,8 @@ commentForm.addEventListener("submit", async (e) => {
     addNewComment(postComment);
     console.log('works');
 
+    commentForm.reset();
+
   } catch (e) {
     console.log(e);
   }
@@ -32,13 +34,13 @@ commentForm.addEventListener("submit", async (e) => {
 
 // Delete Button 
 async function deleteComment(commentId) {
-  const url=`${BASE_URL}/comments/${commentId}?api_key=${API_KEY}`
+  const url=`${BASE_URL}comments/${commentId}?api_key=${API_KEY}`
   try {
     const response = await axios.delete(url);
     return response.data;
   } catch (e) {
-    console.error('error deleting', error);
-    throw error;
+    console.error('error deleting', e);
+    throw e;
   }
 };
 
@@ -55,13 +57,8 @@ async function commentsRender() {
     console.log(commentSect.innerHTML);
 
     commentsAll.forEach((comment) => {
-      // const timestamp = new Date(timestamp);
-      // const commentSect = document.createElement("div");
-      // const dateFormat = 
-
 
       const commentEl = displayComment(comment);
-      
       
       commentSect.appendChild(commentEl);
       
@@ -130,22 +127,21 @@ function displayComment(commentOutput) {
 // Delete button
 const deleteButton = document.createElement('button');
 deleteButton.classList.add('button__delete');
-// deleteButton.innerText = "Delete";
 
-deleteButton.innerHTML = '<img src="../assets/icons/icons-delete.svg">';
+const deleteImg = document.createElement('img');
+  deleteImg.src = "../assets/icons/icon-delete.svg";
+  deleteImg.alt = "image of a garbage can for the delete button";
+deleteImg.classList.add('button__delete-image');
 
-// CANNOT MAKE THE IMAGE APPEAR
-// const deleteImg = document.createElement('img');
-//   deleteImg.src = "../assets/icons/icons-delete.svg";
-//   deleteImg.alt = "image of a garbage can for the delete button";
-// deleteImg.classList.add('button__delete-image');
+deleteButton.append(deleteImg);
 
 deleteButton.addEventListener ('click', async () => {
   try {
-    await axios.deleteComment(`${BASE_URL}/${commentsId}/?api_key=${API_KEY}`);
+    await deleteComment(commentOutput.id);
+    console.log('deleting comment id', commentOutput.id);
     
-     // remove container
     commentEl.remove();
+
 
   } catch (e) {
     console.error('can not delete:', e);

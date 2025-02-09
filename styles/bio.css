@@ -109,7 +109,7 @@ main p {
   padding-bottom: 1rem;
 }
 
-.header--color {
+.header__container {
   background-color: #323232;
 }
 .header__logo {
@@ -128,7 +128,7 @@ main p {
     padding: 0rem 1rem 0rem 5rem;
   }
 }
-.header--align {
+.header__logo-image {
   max-height: 1.25rem;
   max-width: 7.5rem;
 }
@@ -147,7 +147,7 @@ main p {
 @media (min-width: 48rem) {
   .header__text {
     padding-top: 1rem;
-    width: 20%;
+    width: 0%;
     font-family: "Nunito Sans";
     font-size: 3.75rem;
     line-height: 4.25rem;
@@ -155,7 +155,7 @@ main p {
   }
 }
 @media (min-width: 48rem) {
-  .header__logo--flex {
+  .header__nav {
     display: flex;
   }
 }
@@ -181,6 +181,12 @@ main p {
 @media (min-width: 48rem) {
   .nav-bar li {
     flex-basis: 0%;
+    margin-left: 2rem;
+  }
+}
+@media (min-width: 80rem) {
+  .nav-bar li {
+    margin-left: 2rem;
   }
 }
 .nav-bar__text {
@@ -442,7 +448,7 @@ footer .footer__logo--align {
   .gallery__photo {
     width: 30%;
   }
-  .gallery__row--one, .gallery__row--two, .gallery__row--three {
+  .gallery__row-one, .gallery__row-two, .gallery__row-three {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -475,14 +481,14 @@ footer .footer__logo--align {
   display: flex;
 }
 
-.form__container--flex {
+.form__container {
   display: flex;
   flex-direction: column;
   width: 80%;
   padding-bottom: 1rem;
 }
 
-.form__name--flex {
+.form__name {
   display: flex;
   flex-direction: column;
   padding-bottom: 1rem;
@@ -493,7 +499,7 @@ footer .footer__logo--align {
   font-weight: 700;
 }
 
-.form__comment--flex {
+.form__comment {
   display: flex;
   flex-direction: column;
   padding-bottom: 1rem;
@@ -519,7 +525,7 @@ footer .footer__logo--align {
   }
 }
 
-.form__input--flex {
+.form__input {
   display: flex;
   border-bottom: 1px solid #e1e1e1;
 }
@@ -556,7 +562,7 @@ footer .footer__logo--align {
   }
 }
 @media (min-width: 48rem) {
-  .comment__button--flex {
+  .comment__button--size {
     display: flex;
     justify-content: flex-end;
   }
@@ -572,6 +578,18 @@ footer .footer__logo--align {
   padding-top: 1rem;
   display: flex;
   flex-direction: column;
+  margin: 0 1rem;
+}
+@media (min-width: 48rem) {
+  .comment__container {
+    margin: 0 2.25rem 2.25rem 6rem;
+  }
+}
+@media (min-width: 80rem) {
+  .comment__container {
+    margin-left: 20rem;
+    width: 80%;
+  }
 }
 
 input {

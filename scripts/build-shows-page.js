@@ -24,10 +24,6 @@ async function showsRender() {
 }};
 
 
-// for (const showObj of shows) {
-//   const show = document.createElement ("div");
-//   show.classList.add("show");
-
 function showClass(showAll) {
   showAll.forEach((showObj) => {
     const show = document.createElement ("div");
@@ -50,15 +46,6 @@ function showClass(showAll) {
     dateEl.classList.add('show-list__date');
     dateEl.textContent = dateFormat;
     show.append(dateEl);
-
-    // date.classList.add('show-list__date');
-    // date.textContent = showObj.date;
-    // show.append(date);
-
-    // const date  = document.createElement("p");
-    // date.classList.add('show-list__date');
-    // date.textContent = showObj.date;
-    // show.append(date);
 
     const venueSubheader  = document.createElement("p");
     venueSubheader.classList.add('show-list__venueSubheader');

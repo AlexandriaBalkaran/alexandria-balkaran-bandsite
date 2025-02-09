@@ -24,9 +24,9 @@
     @include desktop {
       flex-direction: row;
     }
-    &--flex {
+  }
+  &-container {
     min-width: 70%;
-    }
   }
 }
 .shows__title--position {
@@ -57,46 +57,56 @@
   @include tablet {
     display: flex;
     justify-content: space-between;
-  }
-  
-  &:active {
-    background-color: $secondarySilver;
-  }
+    }
   @include tablet {
     padding: 1.5rem 1.125rem;
     display: flex;
     flex-direction: row;
-  }
+    }
 
   h2 {
     @include tablet {
       position: absolute;
       padding-left: 1rem;
     }
-  }
-  &__subheader {
-    display: none;
-    @include tablet {
-      display: flex;
-      color: $primarySilver;
     }
-  }
 
   &-list {
     @include tablet {
-    padding-top: 5rem;
     width: 100%;
     @include fontBody-Desktop
     }
     @include desktop {
-    position: relative;
-    width: 70%;
-    bottom: 4rem;
-    right: 4rem;
+    width: 100%;
     }
-
+    &__content {
+      display: none; 
+      @include tablet {
+        display: flex;
+        color: $primarySilver;
+        padding-top: 7rem;
+        padding-left: 1rem;
+        width: 100%;
+        justify-content: space-between;
+        max-width: 65%;
+      }
+      @include desktop {
+        padding-top: 0;
+      }
+    }
+    &__container {
+      width: 100%;
+      @include desktop {
+        width: 80%;
+        position: relative;
+        left: 13rem;
+        top: 4rem;
+        padding-bottom: 3rem;
+      }
+    }
     &__info {
       display: flex;
+      color: blue;
 
       @include tablet {
       justify-content: space-between;
@@ -106,6 +116,7 @@
       }
     }
       .show {
+        align-items: center;
         &:hover {
           background-color: $secondaryWhite;
           cursor: pointer;
@@ -117,6 +128,7 @@
       }
   }
 
+
   &-list__dateSubheader, &-list__venueSubheader, &-list__locationSubheader {
     color: $primarySilver;
 
@@ -126,18 +138,29 @@
   }
   &-list__date {
     font-weight: 700;
+    padding-bottom: 0;
+  }
+  &-list__venue , &-list__location {
+    padding-bottom: 0;
   }
   &-list__tickets{
     background-color: $primaryBlack;
     color: $primaryWhite;
     border-radius: .25rem;
-    min-width: 8rem;
-    max-width: 20rem;
-    height: 2rem;
+    width: 100%;
+    height: 48px;
     cursor: pointer;
     @include flexCenter;
     @include fontLabel-Mobile;
     @include fontLabel-Desktop;
+    &:hover {
+      background-color: $secondaryBlack;
+    }
+    @include tablet {
+      min-width: 10rem;
+      max-width: 20rem;
+      width: 0%;
+    }
   }
 }
 iframe {
@@ -149,7 +172,7 @@ iframe {
   overflow: hidden;
   height: 6rem;
 
-  &--flex {
+  &__container {
   display: flex;
   z-index: 4;
   padding: 1rem;

@@ -90,9 +90,9 @@
     &__photo {
       width: 30%;
     }
-    &__row--one,
-    &__row--two,
-    &__row--three {
+    &__row-one,
+    &__row-two,
+    &__row-three {
       display: flex;
       justify-content: space-evenly;
       align-items: center;
@@ -121,21 +121,21 @@
   position: absolute;
   display: flex;
 }
-.form__container--flex {
+.form__container {
   display: flex;
   flex-direction: column;
   width: 80%;
   padding-bottom: 1rem;
 
 }
-.form__name--flex {
+.form__name {
   display: flex;
   flex-direction: column;
   padding-bottom: 1rem;
   color: $secondarySilver;
   @include fontLabel-Mobile
 }
-.form__comment--flex {
+.form__comment {
   display: flex;
   flex-direction: column;
   padding-bottom: 1rem;
@@ -155,7 +155,7 @@
   }
   }
 }
-.form__input--flex {
+.form__input {
   display: flex;
   border-bottom: 1px solid $secondarySilver;
 }
@@ -185,7 +185,7 @@
     }
   }
 
-  &--flex {
+  &--size {
     @include tablet {
       display: flex;
       justify-content: flex-end;
@@ -201,6 +201,14 @@
   padding-top: 1rem;
   display: flex;
   flex-direction: column;
+  margin: 0 1rem;
+  @include tablet {
+    margin: 0 2.25rem 2.25rem 6rem;
+  }
+  @include desktop {
+    margin-left: 20rem;
+    width: 80%;
+  }
 }
 input {
   border: none;
@@ -233,13 +241,6 @@ input {
   transition: border-color 0.3s ease;
   padding: .5rem;
   @include fontBody-Mobile;
-
-  // :active {
-  //   border: 1px solid $primaryBlack;
-  // }
-  // .error {
-  //   border: 1px solid #D22d2d;
-  // }
 
   @include tablet {
     min-height: 3rem;

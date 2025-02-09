@@ -109,7 +109,7 @@ main p {
   padding-bottom: 1rem;
 }
 
-.header--color {
+.header__container {
   background-color: #323232;
 }
 .header__logo {
@@ -128,7 +128,7 @@ main p {
     padding: 0rem 1rem 0rem 5rem;
   }
 }
-.header--align {
+.header__logo-image {
   max-height: 1.25rem;
   max-width: 7.5rem;
 }
@@ -147,7 +147,7 @@ main p {
 @media (min-width: 48rem) {
   .header__text {
     padding-top: 1rem;
-    width: 20%;
+    width: 0%;
     font-family: "Nunito Sans";
     font-size: 3.75rem;
     line-height: 4.25rem;
@@ -155,7 +155,7 @@ main p {
   }
 }
 @media (min-width: 48rem) {
-  .header__logo--flex {
+  .header__nav {
     display: flex;
   }
 }
@@ -181,6 +181,12 @@ main p {
 @media (min-width: 48rem) {
   .nav-bar li {
     flex-basis: 0%;
+    margin-left: 2rem;
+  }
+}
+@media (min-width: 80rem) {
+  .nav-bar li {
+    margin-left: 2rem;
   }
 }
 .nav-bar__text {
@@ -372,7 +378,7 @@ footer .footer__logo--align {
     flex-direction: row;
   }
 }
-.shows__hero-content--flex {
+.shows__hero-container {
   min-width: 70%;
 }
 
@@ -418,9 +424,6 @@ footer .footer__logo--align {
     justify-content: space-between;
   }
 }
-.show:active {
-  background-color: #e1e1e1;
-}
 @media (min-width: 48rem) {
   .show {
     padding: 1.5rem 1.125rem;
@@ -434,18 +437,8 @@ footer .footer__logo--align {
     padding-left: 1rem;
   }
 }
-.show__subheader {
-  display: none;
-}
-@media (min-width: 48rem) {
-  .show__subheader {
-    display: flex;
-    color: #afafaf;
-  }
-}
 @media (min-width: 48rem) {
   .show-list {
-    padding-top: 5rem;
     width: 100%;
     font-family: "Nunito Sans";
     font-size: 0.875rem;
@@ -455,14 +448,43 @@ footer .footer__logo--align {
 }
 @media (min-width: 80rem) {
   .show-list {
+    width: 100%;
+  }
+}
+.show-list__content {
+  display: none;
+}
+@media (min-width: 48rem) {
+  .show-list__content {
+    display: flex;
+    color: #afafaf;
+    padding-top: 7rem;
+    padding-left: 1rem;
+    width: 100%;
+    justify-content: space-between;
+    max-width: 65%;
+  }
+}
+@media (min-width: 80rem) {
+  .show-list__content {
+    padding-top: 0;
+  }
+}
+.show-list__container {
+  width: 100%;
+}
+@media (min-width: 80rem) {
+  .show-list__container {
+    width: 80%;
     position: relative;
-    width: 70%;
-    bottom: 4rem;
-    right: 4rem;
+    left: 13rem;
+    top: 4rem;
+    padding-bottom: 3rem;
   }
 }
 .show-list__info {
   display: flex;
+  color: blue;
 }
 @media (min-width: 48rem) {
   .show-list__info {
@@ -471,6 +493,9 @@ footer .footer__logo--align {
     padding-left: 1.125rem;
     padding-top: 4rem;
   }
+}
+.show-list .show {
+  align-items: center;
 }
 .show-list .show:hover {
   background-color: #fafafa;
@@ -490,14 +515,17 @@ footer .footer__logo--align {
 }
 .show-list__date {
   font-weight: 700;
+  padding-bottom: 0;
+}
+.show-list__venue, .show-list__location {
+  padding-bottom: 0;
 }
 .show-list__tickets {
   background-color: #323232;
   color: #ffffff;
   border-radius: 0.25rem;
-  min-width: 8rem;
-  max-width: 20rem;
-  height: 2rem;
+  width: 100%;
+  height: 48px;
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -511,6 +539,16 @@ footer .footer__logo--align {
   line-height: 1.25rem;
   font-weight: 700;
 }
+.show-list__tickets:hover {
+  background-color: #000000;
+}
+@media (min-width: 48rem) {
+  .show-list__tickets {
+    min-width: 10rem;
+    max-width: 20rem;
+    width: 0%;
+  }
+}
 
 iframe {
   width: 20rem;
@@ -523,7 +561,7 @@ iframe {
   overflow: hidden;
   height: 6rem;
 }
-.iframe--flex {
+.iframe__container {
   display: flex;
   z-index: 4;
   padding: 1rem;
