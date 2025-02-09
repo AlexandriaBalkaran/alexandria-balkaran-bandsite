@@ -5,22 +5,19 @@ const list = document.querySelector('.show-list');
 const showContent = document.querySelector('.show-list__content');
 const shows = document.querySelector('.shows');
 
-console.log('this is working');
-
 showsRender();
 
 async function showsRender() {
   try {
     const response = await axios.get(`${BASE_URL}showdates?api_key=${API_KEY}`);
     const showsAll = response.data;
-    console.log(showsAll);
 
     list.innerHTML = '';
 
     showClass(showsAll);
     
   } catch (e) {
-    console.log('function works')
+ 
 }};
 
 

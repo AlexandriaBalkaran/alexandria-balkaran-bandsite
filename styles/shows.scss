@@ -67,7 +67,6 @@
   h2 {
     @include tablet {
       position: absolute;
-      padding-left: 1rem;
     }
     }
 
@@ -96,10 +95,13 @@
     }
     &__container {
       width: 100%;
+      @include tablet {
+        padding-left: 1.5rem;
+      }
       @include desktop {
-        width: 80%;
+        width: 70%;
         position: relative;
-        left: 13rem;
+        left: 25%;
         top: 4rem;
         padding-bottom: 3rem;
       }
@@ -116,7 +118,6 @@
       }
     }
       .show {
-        align-items: center;
         &:hover {
           background-color: $secondaryWhite;
           cursor: pointer;
@@ -125,7 +126,11 @@
           background-color: $secondarySilver;
           cursor: pointer;
         }
+        @include tablet {
+          align-items: center;
+        }
       }
+
   }
 
 
@@ -138,10 +143,14 @@
   }
   &-list__date {
     font-weight: 700;
-    padding-bottom: 0;
+    @include tablet {
+      padding-bottom: 0;
+    }
   }
   &-list__venue , &-list__location {
-    padding-bottom: 0;
+    @include tablet {
+      padding-bottom: 0;
+    }
   }
   &-list__tickets{
     background-color: $primaryBlack;

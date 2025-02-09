@@ -545,6 +545,12 @@ footer .footer__logo--align {
   }
 }
 
+@media (min-width: 80rem) {
+  .comments__section {
+    width: 80%;
+  }
+}
+
 .comment__button--style {
   height: 40px;
   border-radius: 0.25rem;
@@ -558,7 +564,6 @@ footer .footer__logo--align {
   .comment__button--style {
     min-width: 9.375rem;
     max-width: 15.625rem;
-    min-padding: 0 32px;
   }
 }
 @media (min-width: 48rem) {

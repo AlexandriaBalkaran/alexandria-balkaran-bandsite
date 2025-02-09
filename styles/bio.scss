@@ -169,6 +169,11 @@
     width: 80%;
   }
 }
+.comments__section {
+  @include desktop {
+    width: 80%;
+  }
+}
 .comment__button {
   &--style {
   height: 40px;
@@ -181,7 +186,6 @@
   @include tablet {
     min-width: 9.375rem;
     max-width: 15.625rem;
-    min-padding: 0 32px;
     }
   }
 

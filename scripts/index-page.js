@@ -3,6 +3,7 @@ const BASE_URL = "https://unit-2-project-api-25c1595833b2.herokuapp.com/";
 
 const commentForm = document.getElementById("comments__form");
 const commentSect = document.getElementById("comments__section");
+
 const commentsOriginal = [];
 
 
@@ -23,38 +24,23 @@ commentForm.addEventListener("submit", async (e) => {
     await axios.post(`${BASE_URL}comments?api_key=${API_KEY}`, postComment);
 
     addNewComment(postComment);
-    console.log('works');
 
     commentForm.reset();
 
   } catch (e) {
-    console.log(e);
+
   }
 });
-
-// Delete Button 
-async function deleteComment(commentId) {
-  const url=`${BASE_URL}comments/${commentId}?api_key=${API_KEY}`
-  try {
-    const response = await axios.delete(url);
-    return response.data;
-  } catch (e) {
-    console.error('error deleting', e);
-    throw e;
-  }
-};
 
 // Functions
 async function commentsRender() {
   try {
     const response = await axios.get(`${BASE_URL}comments?api_key=${API_KEY}`);
     const commentsAll = response.data;
-    console.log(commentsAll);
 
     commentsAll.sort((a,b) => new Date(b.timestamp) - new Date(a.timestamp));
 
     commentSect.innerHTML = "";
-    console.log(commentSect.innerHTML);
 
     commentsAll.forEach((comment) => {
 
@@ -64,20 +50,19 @@ async function commentsRender() {
       
     });
   } catch (e) {
-    console.log('function works')
+    
 }};
 
+// Add New Comment
 function addNewComment(newComment) {
   commentsOriginal.push(newComment);
 
   const commentEl = displayComment(newComment);
   commentSect.insertBefore(commentEl, commentSect.firstChild);
 };
-      
 
 // Containers to display contents
 function displayComment(commentOutput) {
-  console.log(commentOutput);
   const commentEl = document.createElement('div');
   commentEl.classList.add('comment__container');
 
@@ -123,31 +108,6 @@ function displayComment(commentOutput) {
 
 // Append new text to container
   commentEl.appendChild(textContainer);
-
-// Delete button
-const deleteButton = document.createElement('button');
-deleteButton.classList.add('button__delete');
-
-const deleteImg = document.createElement('img');
-  deleteImg.src = "../assets/icons/icon-delete.svg";
-  deleteImg.alt = "image of a garbage can for the delete button";
-deleteImg.classList.add('button__delete-image');
-
-deleteButton.append(deleteImg);
-
-deleteButton.addEventListener ('click', async () => {
-  try {
-    await deleteComment(commentOutput.id);
-    console.log('deleting comment id', commentOutput.id);
-    
-    commentEl.remove();
-
-
-  } catch (e) {
-    console.error('can not delete:', e);
-  }
-});
-  commentEl.appendChild(deleteButton);
 
   return commentEl;
 }

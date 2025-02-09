@@ -434,7 +434,6 @@ footer .footer__logo--align {
 @media (min-width: 48rem) {
   .show h2 {
     position: absolute;
-    padding-left: 1rem;
   }
 }
 @media (min-width: 48rem) {
@@ -473,11 +472,16 @@ footer .footer__logo--align {
 .show-list__container {
   width: 100%;
 }
+@media (min-width: 48rem) {
+  .show-list__container {
+    padding-left: 1.5rem;
+  }
+}
 @media (min-width: 80rem) {
   .show-list__container {
-    width: 80%;
+    width: 70%;
     position: relative;
-    left: 13rem;
+    left: 25%;
     top: 4rem;
     padding-bottom: 3rem;
   }
@@ -494,9 +498,6 @@ footer .footer__logo--align {
     padding-top: 4rem;
   }
 }
-.show-list .show {
-  align-items: center;
-}
 .show-list .show:hover {
   background-color: #fafafa;
   cursor: pointer;
@@ -504,6 +505,11 @@ footer .footer__logo--align {
 .show-list .show:active {
   background-color: #e1e1e1;
   cursor: pointer;
+}
+@media (min-width: 48rem) {
+  .show-list .show {
+    align-items: center;
+  }
 }
 .show-list__dateSubheader, .show-list__venueSubheader, .show-list__locationSubheader {
   color: #afafaf;
@@ -515,10 +521,16 @@ footer .footer__logo--align {
 }
 .show-list__date {
   font-weight: 700;
-  padding-bottom: 0;
 }
-.show-list__venue, .show-list__location {
-  padding-bottom: 0;
+@media (min-width: 48rem) {
+  .show-list__date {
+    padding-bottom: 0;
+  }
+}
+@media (min-width: 48rem) {
+  .show-list__venue, .show-list__location {
+    padding-bottom: 0;
+  }
 }
 .show-list__tickets {
   background-color: #323232;
